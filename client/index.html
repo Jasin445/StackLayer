@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StackLayer</title>
+    <!-- Base URL ensures all relative paths in injected HTML work -->
+  <base href="/client/" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/components/navbar.css" />
+    <!-- <link rel="stylesheet" href="css/components/pages/landing.css" />
+    <link rel="stylesheet" href="css/components/pages/work-selection.css" /> -->
+    <!-- <link rel="stylesheet" href="css/components/pages/discover.css" /> -->
+    <!-- <link rel="stylesheet" href="css/components/pages/ai-suggestion.css" />
+    <link rel="stylesheet" href="css/components/pages/ai-details.css" />
+    <link rel="stylesheet" href="css/components/pages/project-phase.css" /> -->
+  </head>
+  <body>
+
+    <nav class="nav-container">
+      <div class="container nav">
+        <a class="nav-logo" data-link="/" href="#">
+          <div class="nav-logo-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 6h16M4 12h16M4 18h10" stroke="#fff" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+            </svg>
+          </div>
+          StackLayer
+        </a>
+        <ul class="nav-links">
+          <li data-link="/tools">Tools</li>
+          <li data-link="/discover">Discover</li>
+          <li data-link="/">Community</li>
+        </ul>
+        <div class="nav-right">
+          <div class="search-bar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/>
+              <path d="M21 21l-4.35-4.35"/>
+            </svg>
+            Search AI tools...
+          </div>
+          <button class="btn-primary" data-link="/work-selection">Get Started</button>
+        </div>
+      </div>
+    </nav>
+
+    <div id="app"></div>
+
+    <script src="js/pages/router.js"></script>
+  </body>
+</html>

@@ -1,0 +1,120 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #fff;
+  color: #111;
+  min-height: 100vh;
+background: linear-gradient(160deg, #eef3fb 0%, #f8fafc 60%, #edf2fa 100%);
+
+}
+
+#app {
+  width: 100%;
+  min-height: 100vh;
+}
+
+
+
+/* NAV */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+  gap: 12px;
+}
+
+.nav-container {
+  padding: 0 clamp(16px, 4vw, 48px);
+  height: 80px;
+  border-bottom: 1px solid #eee;
+  background: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: clamp(14px, 1.5vw, 16px);
+  color: #111;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.nav-logo-icon {
+  width: 28px;
+  height: 28px;
+  background: #2563eb;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.nav-logo-icon svg { width: 16px; height: 16px; fill: #fff; }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 2.5vw, 32px);
+  list-style: none;
+}
+
+.nav-links li {
+  text-decoration: none;
+  color: #444;
+  font-size: clamp(13px, 1.2vw, 14px);
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: clamp(8px, 1.5vw, 16px);
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f5f6f8;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 6px 14px;
+  font-size: clamp(12px, 1.1vw, 13px);
+  color: #9ca3af;
+  width: clamp(130px, 16vw, 200px);
+  cursor: text;
+}
+
+.search-bar svg { width: 14px; height: 14px; color: #9ca3af; flex-shrink: 0; }
+
+.btn-primary {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 9px clamp(12px, 1.5vw, 18px);
+  font-size: clamp(13px, 1.2vw, 14px);
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ── SMALL MOBILE (≤ 480px) ── */
+@media (max-width: 480px) {
+  .search-bar { display: none; }
+
+  .trusted-logos {
+    gap: 16px;
+  }
+}

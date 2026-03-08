@@ -1,0 +1,215 @@
+ /* *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #fff;
+  color: #111;
+  min-height: 100vh;
+background: linear-gradient(160deg, #eef3fb 0%, #f8fafc 60%, #edf2fa 100%);
+
+} */
+ 
+ .btn-primary {
+      background: #2563eb;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 9px clamp(12px, 1.5vw, 18px);
+      font-size: clamp(13px, 1.2vw, 14px);
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* PAGE BG */
+    .page {
+      min-height: calc(100vh - 60px);
+      background: linear-gradient(160deg, #eef3fb 0%, #f0f4fb 50%, #e8eef8 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(24px, 4vw, 48px) clamp(16px, 4vw, 48px);
+    }
+
+    /* CARD */
+    .card {
+      background: #fff;
+      border-radius: 20px;
+      padding: clamp(32px, 4vw, 48px) clamp(24px, 4vw, 48px);
+      width: 100%;
+      max-width: 560px;
+      box-shadow: 0 2px 24px rgba(0,0,0,0.06);
+    }
+
+    .card-title {
+      font-size: clamp(24px, 4vw, 32px);
+      font-weight: 800;
+      color: #0f172a;
+      text-align: center;
+      margin-bottom: 8px;
+    }
+
+    .card-sub {
+      font-size: clamp(13px, 1.3vw, 14px);
+      color: #94a3b8;
+      text-align: center;
+      margin-bottom: clamp(24px, 3vw, 32px);
+    }
+
+    /* ROLE CARDS */
+    .roles {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(10px, 2vw, 16px);
+      margin-bottom: clamp(24px, 3vw, 32px);
+    }
+
+    .role-card {
+      border: 1.5px solid #e2e8f0;
+      border-radius: 14px;
+      padding: clamp(20px, 3vw, 28px) clamp(16px, 2vw, 20px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      position: relative;
+      transition: border-color 0.15s, box-shadow 0.15s;
+      background: #fff;
+    }
+
+    .role-card:hover {
+      border-color: #93c5fd;
+    }
+
+    .role-card.selected {
+      border-color: #2563eb;
+      box-shadow: 0 0 0 1px #2563eb;
+    }
+
+    .check-icon {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 20px;
+      height: 20px;
+      display: none;
+    }
+
+    .role-card.selected .check-icon { display: block; }
+
+    .role-icon-wrap {
+      width: 52px;
+      height: 52px;
+      background: #f1f5ff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .role-card.selected .role-icon-wrap {
+      background: #eff6ff;
+    }
+
+    .role-icon-wrap svg {
+      width: 24px;
+      height: 24px;
+      stroke: #64748b;
+      fill: none;
+      stroke-width: 1.8;
+    }
+
+    .role-card.selected .role-icon-wrap svg {
+      stroke: #2563eb;
+    }
+
+    .role-name {
+      font-size: clamp(13px, 1.3vw, 15px);
+      font-weight: 700;
+      color: #0f172a;
+      text-align: center;
+    }
+
+    .role-desc {
+      font-size: clamp(11px, 1vw, 12px);
+      color: #94a3b8;
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    /* SKILL */
+    .skill-label {
+      font-size: clamp(13px, 1.3vw, 15px);
+      font-weight: 700;
+      color: #0f172a;
+      text-align: center;
+      margin-bottom: clamp(12px, 2vw, 16px);
+    }
+
+    .skill-options {
+      display: flex;
+      justify-content: center;
+      gap: clamp(8px, 1.5vw, 12px);
+      margin-bottom: clamp(24px, 3vw, 32px);
+      flex-wrap: wrap;
+    }
+
+    .skill-btn {
+      border: 1.5px solid #e2e8f0;
+      background: #fff;
+      border-radius: 999px;
+      padding: 8px clamp(18px, 2.5vw, 28px);
+      font-size: clamp(13px, 1.2vw, 14px);
+      font-weight: 500;
+      color: #374151;
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.15s, color 0.15s;
+    }
+
+    .skill-btn:hover { border-color: #93c5fd; }
+
+    .skill-btn.active {
+      background: #2563eb;
+      border-color: #2563eb;
+      color: #fff;
+      font-weight: 600;
+    }
+
+    /* CONTINUE */
+    .btn-continue {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      background: #2563eb;
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      padding: clamp(14px, 2vw, 17px);
+      font-size: clamp(14px, 1.4vw, 15px);
+      font-weight: 600;
+      cursor: pointer;
+      margin-bottom: 14px;
+    }
+
+    .btn-continue svg { width: 16px; height: 16px; stroke: #fff; fill: none; stroke-width: 2.5; }
+
+    .card-note {
+      font-size: clamp(11px, 1vw, 12px);
+      color: #94a3b8;
+      text-align: center;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 480px) {
+      .nav-links { display: none; }
+      .search-bar { display: none; }
+      .roles { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 360px) {
+      .roles { grid-template-columns: 1fr; }
+    }

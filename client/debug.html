@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+<pre id="out"></pre>
+<script>
+fetch('./pages/landing-page.html')
+  .then(r => r.text())
+  .then(html => {
+    const tpl = document.createElement('template');
+    tpl.innerHTML = html;
+
+    let out = `FETCHED ${html.length} chars\n\n`;
+    out += `TOP-LEVEL NODES: ${tpl.content.childNodes.length}\n\n`;
+    tpl.content.childNodes.forEach((n, i) => {
+      if (n.nodeType === 1) out += `  [${i}] <${n.tagName.toLowerCase()} class="${n.className}">\n`;
+      if (n.nodeType === 3 && n.textContent.trim()) out += `  [${i}] TEXT: "${n.textContent.trim().slice(0,40)}"\n`;
+    });
+
+    out += '\n--- FIRST 500 CHARS OF FETCHED HTML ---\n';
+    out += html.slice(0, 500);
+
+    document.getElementById('out').textContent = out;
+  });
+</script>
+</body>
+</html>

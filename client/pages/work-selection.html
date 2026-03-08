@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>StackLayer – Onboarding</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/components/pages/landing.css">
+  <link rel="stylesheet" href="css/components/pages/work-selection.css">
+</head>
+<body>
+
+
+<!-- PAGE -->
+<div class="page">
+  <div class="card">
+    <h1 class="card-title">What do you do?</h1>
+    <p class="card-sub">Select your primary role to customize your workspace.</p>
+
+    <!-- ROLES -->
+    <div class="roles">
+      <!-- Content Creator -->
+      <div class="role-card" onclick="selectRole(this)">
+        <svg class="check-icon" viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="11" stroke="#2563eb" stroke-width="1.5"/>
+          <path d="M7 12.5l3.5 3.5 6.5-7" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="role-icon-wrap">
+          <!-- pen + lines icon -->
+          <svg viewBox="0 0 24 24">
+            <path d="M12 20h9" stroke-linecap="round"/>
+            <path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4 12.5-12.5z" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="role-name">Content Creator</div>
+        <div class="role-desc">Writers, editors, and marketers</div>
+      </div>
+
+      <!-- Designer (selected by default) -->
+      <div class="role-card selected" onclick="selectRole(this)">
+        <svg class="check-icon" viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="11" stroke="#2563eb" stroke-width="1.5"/>
+          <path d="M7 12.5l3.5 3.5 6.5-7" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="role-icon-wrap">
+          <!-- palette icon -->
+          <svg viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12c0 5.52 4.48 10 10 10 1.1 0 2-.9 2-2 0-.52-.2-1-.52-1.36-.3-.34-.48-.78-.48-1.24 0-1.1.9-2 2-2h2.36c3.1 0 5.64-2.54 5.64-5.64C22 6.18 17.52 2 12 2z" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="8.5" cy="10.5" r="1" fill="#2563eb" stroke="none"/>
+            <circle cx="12" cy="7.5" r="1" fill="#2563eb" stroke="none"/>
+            <circle cx="15.5" cy="10.5" r="1" fill="#2563eb" stroke="none"/>
+          </svg>
+        </div>
+        <div class="role-name">Designer</div>
+        <div class="role-desc">UI/UX, graphic, and product designers</div>
+      </div>
+    </div>
+
+    <!-- SKILL LEVEL -->
+    <div class="skill-label">What is your skill level?</div>
+    <div class="skill-options">
+      <button class="skill-btn" onclick="selectSkill(this)">Beginner</button>
+      <button class="skill-btn active" onclick="selectSkill(this)">Intermediate</button>
+      <button class="skill-btn" onclick="selectSkill(this)">Advanced</button>
+    </div>
+
+    <!-- CONTINUE -->
+    <button data-link="/tools" class="btn-continue">
+      Continue
+      <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <p class="card-note">You can change these settings later in your profile.</p>
+  </div>
+</div>
+
+<script>
+  function selectRole(el) {
+    document.querySelectorAll('.role-card').forEach(c => c.classList.remove('selected'));
+    el.classList.add('selected');
+  }
+
+  function selectSkill(el) {
+    document.querySelectorAll('.skill-btn').forEach(b => b.classList.remove('active'));
+    el.classList.add('active');
+  }
+</script>
+
+</body>
+</html>
