@@ -29,7 +29,7 @@ document.addEventListener("click", (e) => {
   const link = e.target.closest("[data-link]");
   console.log(link)
 
-  if (!link) throw Error("Hello Bad");
+  if (!link) return;
 
   const path = link.getAttribute("data-link");
 
