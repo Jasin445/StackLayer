@@ -4,5 +4,5 @@ document.addEventListener("click", (e) => {
 
   e.preventDefault();
   const path = link.dataset.link;
-  location.href = "/client" + path + ".html";
+  location.href = path + ".html";
 });
