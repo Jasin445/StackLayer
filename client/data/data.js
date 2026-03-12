@@ -8,7 +8,7 @@ export const stackLayerCategories = [
     tools: [
       {
         name: "ChatGPT",
-        tier: "Freemium",
+        tier: "Premium",
         tags: ["Brainstorming", "Writing"],
         filter: ["Script Writing"],
         logo: { bg: "#10a37f", color: "#fff", initials: "GP" },
@@ -67,7 +67,7 @@ export const stackLayerCategories = [
       },
       {
         name: "Claude",
-        tier: "Freemium",
+        tier: "Premium",
         tags: ["Brainstorming", "Writing"],
         filter: ["Script Writing"],
         logo: { bg: "#d97757", color: "#fff", initials: "CL" },
@@ -126,7 +126,7 @@ export const stackLayerCategories = [
       },
       {
         name: "Perplexity AI",
-        tier: "Freemium",
+        tier: "Premium",
         tags: ["Research", "Ideation"],
         filter: ["Script Writing"],
         logo: { bg: "#1a1a2e", color: "#00d4aa", initials: "PX" },
@@ -185,7 +185,7 @@ export const stackLayerCategories = [
       },
       {
         name: "Notion AI",
-        tier: "Freemium",
+        tier: "Premium",
         tags: ["Brainstorming", "Outlining"],
         filter: ["Script Writing"],
         logo: { bg: "#000000", color: "#ffffff", initials: "NO" },
@@ -244,7 +244,7 @@ export const stackLayerCategories = [
       },
       {
         name: "Miro AI",
-        tier: "Freemium",
+        tier: "Premium",
         tags: ["Collaboration", "Mind Mapping"],
         filter: [],
         logo: { bg: "#ffdd00", color: "#050038", initials: "MI" },
@@ -303,7 +303,7 @@ export const stackLayerCategories = [
       },
       {
         name: "MindMeister",
-        tier: "Freemium",
+        tier: "Premium",
         tags: ["Mind Mapping", "Outlining"],
         filter: [],
         logo: { bg: "#ff6b35", color: "#fff", initials: "MM" },
@@ -362,7 +362,7 @@ export const stackLayerCategories = [
       },
       {
         name: "XMind AI",
-        tier: "Freemium",
+        tier: "Premium",
         tags: ["Mind Mapping", "Brainstorming"],
         filter: [],
         logo: { bg: "#ff4757", color: "#fff", initials: "XM" },
@@ -421,7 +421,7 @@ export const stackLayerCategories = [
       },
       {
         name: "Ayoa",
-        tier: "Freemium",
+        tier: "Premium",
         tags: ["Mind Mapping", "Task Management"],
         filter: [],
         logo: { bg: "#7c3aed", color: "#fff", initials: "AY" },
@@ -480,7 +480,7 @@ export const stackLayerCategories = [
       },
       {
         name: "FigJam AI",
-        tier: "Freemium",
+        tier: "Premium",
         tags: ["Collaboration", "Whiteboard"],
         filter: [],
         logo: { bg: "#f24e1e", color: "#fff", initials: "FJ" },
@@ -539,7 +539,7 @@ export const stackLayerCategories = [
       },
       {
         name: "ClickUp Brain",
-        tier: "Freemium",
+        tier: "Premium",
         tags: ["Brainstorming", "Project Planning"],
         filter: ["Script Writing"],
         logo: { bg: "#7b68ee", color: "#fff", initials: "CU" },
@@ -598,7 +598,7 @@ export const stackLayerCategories = [
       },
       {
         name: "Mapify (Chatmind)",
-        tier: "Freemium",
+        tier: "Premium",
         tags: ["Mind Mapping", "Summarization"],
         filter: [],
         logo: { bg: "#0ea5e9", color: "#fff", initials: "MP" },
@@ -657,7 +657,7 @@ export const stackLayerCategories = [
       },
       {
         name: "Boardmix",
-        tier: "Freemium",
+        tier: "Premium",
         tags: ["Whiteboard", "Collaboration"],
         filter: [],
         logo: { bg: "#6366f1", color: "#fff", initials: "BM" },
@@ -716,7 +716,7 @@ export const stackLayerCategories = [
       },
       {
         name: "Lucidchart",
-        tier: "Freemium",
+        tier: "Premium",
         tags: ["Diagramming", "Collaboration"],
         filter: [],
         logo: { bg: "#f97316", color: "#fff", initials: "LC" },
@@ -775,7 +775,7 @@ export const stackLayerCategories = [
       },
       {
         name: "Mural",
-        tier: "Freemium",
+        tier: "Premium",
         tags: ["Collaboration", "Whiteboard"],
         filter: [],
         logo: { bg: "#ff3366", color: "#fff", initials: "MU" },
@@ -834,7 +834,7 @@ export const stackLayerCategories = [
       },
       {
         name: "Google Gemini",
-        tier: "Freemium",
+        tier: "Premium",
         tags: ["Brainstorming", "Research"],
         filter: ["Script Writing"],
         logo: { bg: "#4285f4", color: "#fff", initials: "GG" },
@@ -893,7 +893,7 @@ export const stackLayerCategories = [
       },
       {
         name: "Taskade",
-        tier: "Freemium",
+        tier: "Premium",
         tags: ["Project Planning", "AI Agents"],
         filter: ["Script Writing"],
         logo: { bg: "#6c63ff", color: "#fff", initials: "TD" },
@@ -952,7 +952,7 @@ export const stackLayerCategories = [
       },
       {
         name: "Napkin AI",
-        tier: "Freemium",
+        tier: "Premium",
         tags: ["Visual Thinking", "Diagramming"],
         filter: ["Thumbnail Design"],
         logo: { bg: "#18181b", color: "#facc15", initials: "NA" },
@@ -1011,7 +1011,7 @@ export const stackLayerCategories = [
       },
       {
         name: "Elicit",
-        tier: "Freemium",
+        tier: "Premium",
         tags: ["Research", "Literature Review"],
         filter: [],
         logo: { bg: "#1e3a5f", color: "#60a5fa", initials: "EL" },
@@ -1070,7 +1070,7 @@ export const stackLayerCategories = [
       },
       {
         name: "Obsidian",
-        tier: "Freemium",
+        tier: "Premium",
         tags: ["Note-Taking", "Knowledge Graph"],
         filter: [],
         logo: { bg: "#7c3aed", color: "#e9d5ff", initials: "OB" },
@@ -1130,7 +1130,7 @@ export const stackLayerCategories = [
       },
       {
         name: "Otter.ai",
-        tier: "Freemium",
+        tier: "Premium",
         tags: ["Transcription", "Meeting Notes"],
         filter: ["Script Writing"],
         logo: { bg: "#0f766e", color: "#fff", initials: "OT" },
@@ -1189,7 +1189,7 @@ export const stackLayerCategories = [
       },
       {
         name: "Fireflies.ai",
-        tier: "Freemium",
+        tier: "Premium",
         tags: ["Transcription", "Meetings"],
         filter: ["Script Writing"],
         logo: { bg: "#7c3aed", color: "#fbbf24", initials: "FF" },
@@ -1248,7 +1248,7 @@ export const stackLayerCategories = [
       },
       {
         name: "Whimsical",
-        tier: "Freemium",
+        tier: "Premium",
         tags: ["Wireframing", "Mind Mapping"],
         filter: [],
         logo: { bg: "#ec4899", color: "#fff", initials: "WH" },
@@ -1307,7 +1307,7 @@ export const stackLayerCategories = [
       },
       {
         name: "Poe",
-        tier: "Freemium",
+        tier: "Premium",
         tags: ["Multi-Model", "Brainstorming"],
         filter: ["Script Writing"],
         logo: { bg: "#6366f1", color: "#fff", initials: "PO" },
@@ -1366,7 +1366,7 @@ export const stackLayerCategories = [
       },
       {
         name: "Microsoft Copilot",
-        tier: "Freemium",
+        tier: "Premium",
         tags: ["Brainstorming", "Productivity"],
         filter: ["Script Writing"],
         logo: { bg: "#0078d4", color: "#fff", initials: "MC" },
@@ -1476,7 +1476,7 @@ export const stackLayerCategories = [
       },
       {
         name: "Mem AI",
-        tier: "Freemium",
+        tier: "Premium",
         tags: ["Note-Taking", "AI Search"],
         filter: [],
         logo: { bg: "#0f172a", color: "#38bdf8", initials: "MA" },
@@ -1723,7 +1723,7 @@ export const stackLayerCategories = [
       },
       {
         name: "ElevenLabs",
-        tier: "Freemium",
+        tier: "Premium",
         tags: ["AI Voice", "Audio"],
         filter: ["AI Voiceover"],
         logo: { bg: "#111", color: "#f5c518", initials: "EL" },
@@ -1783,7 +1783,7 @@ export const stackLayerCategories = [
       },
       {
         name: "Captions.ai",
-        tier: "Freemium",
+        tier: "Premium",
         tags: ["Mobile", "Short-form Video"],
         filter: ["Video Editing", "AI Voiceover"],
         logo: { bg: "#5b21b6", color: "#fff", initials: "CA" },
@@ -1842,7 +1842,7 @@ export const stackLayerCategories = [
       },
       {
         name: "DALL·E 3",
-        tier: "Freemium",
+        tier: "Premium",
         tags: ["AI Image", "Generative"],
         filter: ["Thumbnail Design"],
         logo: { bg: "#10a37f", color: "#fff", initials: "DL" },
@@ -1901,7 +1901,7 @@ export const stackLayerCategories = [
       },
       {
         name: "Adobe Firefly",
-        tier: "Freemium",
+        tier: "Premium",
         tags: ["AI Image", "Design"],
         filter: ["Thumbnail Design"],
         logo: { bg: "#ff0000", color: "#fff", initials: "AF" },
@@ -1960,7 +1960,7 @@ export const stackLayerCategories = [
       },
       {
         name: "Canva AI",
-        tier: "Freemium",
+        tier: "Premium",
         tags: ["Design", "Templates"],
         filter: ["Thumbnail Design"],
         logo: { bg: "#00c4cc", color: "#fff", initials: "CV" },
@@ -2019,7 +2019,7 @@ export const stackLayerCategories = [
       },
       {
         name: "Descript",
-        tier: "Freemium",
+        tier: "Premium",
         tags: ["Podcast", "Video Editing"],
         filter: ["Video Editing", "AI Voiceover", "Script Writing"],
         logo: { bg: "#7c3aed", color: "#fff", initials: "DS" },
@@ -2132,7 +2132,7 @@ export const stackLayerCategories = [
       },
       {
         name: "HeyGen",
-        tier: "Freemium",
+        tier: "Premium",
         tags: ["AI Video", "Avatars"],
         filter: ["AI Voiceover", "Video Editing"],
         logo: { bg: "#2563eb", color: "#fff", initials: "HG" },
@@ -2250,7 +2250,7 @@ export const stackLayerCategories = [
       },
       {
         name: "Luma Dream Machine",
-        tier: "Freemium",
+        tier: "Premium",
         tags: ["AI Video", "Generative"],
         filter: ["Video Editing"],
         logo: { bg: "#18181b", color: "#a78bfa", initials: "LM" },
@@ -2361,7 +2361,7 @@ export const stackLayerCategories = [
       },
       {
         name: "CapCut AI",
-        tier: "Freemium",
+        tier: "Premium",
         tags: ["Video Editing", "Mobile"],
         filter: ["Video Editing"],
         logo: { bg: "#000", color: "#fff", initials: "CC" },
@@ -2435,7 +2435,7 @@ export const stackLayerCategories = [
       },
       {
         name: "Suno AI",
-        tier: "Freemium",
+        tier: "Premium",
         tags: ["Music Generation", "Audio"],
         filter: ["Music & Audio"],
         logo: { bg: "#18181b", color: "#a3e635", initials: "SN" },
@@ -2508,7 +2508,7 @@ export const stackLayerCategories = [
       },
       {
         name: "Copy.ai",
-        tier: "Freemium",
+        tier: "Premium",
         tags: ["Copywriting", "Marketing"],
         filter: ["Script Writing"],
         logo: { bg: "#6d28d9", color: "#fff", initials: "CP" },
@@ -2581,7 +2581,7 @@ export const stackLayerCategories = [
       },
       {
         name: "Writesonic",
-        tier: "Freemium",
+        tier: "Premium",
         tags: ["Blog Writing", "SEO"],
         filter: ["Script Writing"],
         logo: { bg: "#0f172a", color: "#38bdf8", initials: "WS" },
@@ -2654,7 +2654,7 @@ export const stackLayerCategories = [
       },
       {
         name: "InVideo AI",
-        tier: "Freemium",
+        tier: "Premium",
         tags: ["AI Video", "Templates"],
         filter: ["Video Editing"],
         logo: { bg: "#7c3aed", color: "#fff", initials: "IV" },
@@ -2727,7 +2727,7 @@ export const stackLayerCategories = [
       },
       {
         name: "Opus Clip",
-        tier: "Freemium",
+        tier: "Premium",
         tags: ["Short-form Video", "Repurposing"],
         filter: ["Video Editing"],
         logo: { bg: "#09090b", color: "#f472b6", initials: "OP" },
@@ -2800,7 +2800,7 @@ export const stackLayerCategories = [
       },
       {
         name: "Veed.io",
-        tier: "Freemium",
+        tier: "Premium",
         tags: ["Video Editing", "Captions"],
         filter: ["Video Editing", "AI Voiceover"],
         logo: { bg: "#111827", color: "#34d399", initials: "VD" },
@@ -2958,7 +2958,7 @@ export const stackLayerCategories = [
       },
       {
         name: "Grammarly",
-        tier: "Freemium",
+        tier: "Premium",
         tags: ["Writing", "Grammar"],
         filter: ["Script Writing"],
         logo: { bg: "#15c39a", color: "#fff", initials: "GR" },
@@ -3031,7 +3031,7 @@ export const stackLayerCategories = [
       },
       {
         name: "Semrush Writing Assistant",
-        tier: "Freemium",
+        tier: "Premium",
         tags: ["SEO", "Writing"],
         filter: ["SEO & Analytics", "Script Writing"],
         logo: { bg: "#ff642d", color: "#fff", initials: "SM" },
@@ -3172,7 +3172,7 @@ export const stackLayerCategories = [
       },
       {
         name: "Wordtune",
-        tier: "Freemium",
+        tier: "Premium",
         tags: ["Writing", "Rewriting"],
         filter: ["Script Writing"],
         logo: { bg: "#4f46e5", color: "#fff", initials: "WT" },
@@ -3245,7 +3245,7 @@ export const stackLayerCategories = [
       },
       {
         name: "Frase",
-        tier: "Freemium",
+        tier: "Premium",
         tags: ["SEO", "Content Briefs"],
         filter: ["SEO & Analytics", "Script Writing"],
         logo: { bg: "#7c3aed", color: "#fff", initials: "FR" },
@@ -3318,7 +3318,7 @@ export const stackLayerCategories = [
       },
       {
         name: "QuillBot",
-        tier: "Freemium",
+        tier: "Premium",
         tags: ["Paraphrasing", "Summarization"],
         filter: ["Script Writing"],
         logo: { bg: "#16a34a", color: "#fff", initials: "QB" },
@@ -3391,7 +3391,7 @@ export const stackLayerCategories = [
       },
       {
         name: "MarketMuse",
-        tier: "Freemium",
+        tier: "Premium",
         tags: ["SEO", "Content Strategy"],
         filter: ["SEO & Analytics"],
         logo: { bg: "#0f172a", color: "#f59e0b", initials: "MM" },
@@ -3464,7 +3464,7 @@ export const stackLayerCategories = [
       },
       {
         name: "Hotjar AI",
-        tier: "Freemium",
+        tier: "Premium",
         tags: ["UX", "Conversion"],
         filter: ["SEO & Analytics"],
         logo: { bg: "#fd3a5c", color: "#fff", initials: "HJ" },
@@ -3533,7 +3533,7 @@ export const stackLayerCategories = [
       },
       {
         name: "Hemingway Editor",
-        tier: "Freemium",
+        tier: "Premium",
         tags: ["Writing", "Readability"],
         filter: ["Script Writing"],
         logo: { bg: "#f59e0b", color: "#1c1917", initials: "HW" },
@@ -3594,7 +3594,7 @@ export const stackLayerCategories = [
       },
       {
         name: "ProWritingAid",
-        tier: "Freemium",
+        tier: "Premium",
         tags: ["Writing", "Editing"],
         filter: ["Script Writing"],
         logo: { bg: "#1e3a5f", color: "#fff", initials: "PW" },
@@ -3662,7 +3662,7 @@ export const stackLayerCategories = [
       },
       {
         name: "NitroPack",
-        tier: "Freemium",
+        tier: "Premium",
         tags: ["Performance", "Web Speed"],
         filter: ["SEO & Analytics"],
         logo: { bg: "#7c3aed", color: "#fff", initials: "NP" },
@@ -3962,7 +3962,7 @@ export const stackLayerCategories = [
     tools: [
       {
         name: "Buffer",
-        tier: "Freemium",
+        tier: "Premium",
         tags: ["Social Media", "Scheduling"],
         filter: ["Social Media"],
         logo: { bg: "#168eea", color: "#fff", initials: "BF" },
@@ -4109,7 +4109,7 @@ export const stackLayerCategories = [
       },
       {
         name: "Later",
-        tier: "Freemium",
+        tier: "Premium",
         tags: ["Visual Planning", "Instagram"],
         filter: ["Social Media"],
         logo: { bg: "#2dd4bf", color: "#fff", initials: "LT" },
@@ -4182,7 +4182,7 @@ export const stackLayerCategories = [
       },
       {
         name: "Mailchimp",
-        tier: "Freemium",
+        tier: "Premium",
         tags: ["Email Marketing", "Automation"],
         filter: ["Email & Newsletter"],
         logo: { bg: "#ffe01b", color: "#241c15", initials: "MC" },
@@ -4330,7 +4330,7 @@ export const stackLayerCategories = [
       },
       {
         name: "Klaviyo",
-        tier: "Freemium",
+        tier: "Premium",
         tags: ["Email", "E-commerce"],
         filter: ["Email & Newsletter"],
         logo: { bg: "#09090b", color: "#22c55e", initials: "KL" },
@@ -4403,7 +4403,7 @@ export const stackLayerCategories = [
       },
       {
         name: "Zapier",
-        tier: "Freemium",
+        tier: "Premium",
         tags: ["Automation", "Integrations"],
         filter: ["Automation"],
         logo: { bg: "#ff4a00", color: "#fff", initials: "ZP" },
@@ -4472,7 +4472,7 @@ export const stackLayerCategories = [
       },
       {
         name: "Beehiiv",
-        tier: "Freemium",
+        tier: "Premium",
         tags: ["Newsletter", "Publishing"],
         filter: ["Email & Newsletter"],
         logo: { bg: "#f59e0b", color: "#1c1917", initials: "BH" },
@@ -4546,7 +4546,7 @@ export const stackLayerCategories = [
       },
       {
         name: "ConvertKit",
-        tier: "Freemium",
+        tier: "Premium",
         tags: ["Email", "Creators"],
         filter: ["Email & Newsletter"],
         logo: { bg: "#fb6970", color: "#fff", initials: "CK" },
@@ -4828,7 +4828,7 @@ export const stackLayerCategories = [
       },
       {
         name: "Substack",
-        tier: "Freemium",
+        tier: "Premium",
         tags: ["Newsletter", "Publishing"],
         filter: ["Email & Newsletter"],
         logo: { bg: "#ff6719", color: "#fff", initials: "SK" },
@@ -4962,7 +4962,7 @@ export const stackLayerCategories = [
       },
       {
         name: "Hotjar",
-        tier: "Freemium",
+        tier: "Premium",
         tags: ["UX", "Heatmaps"],
         filter: ["SEO & Analytics"],
         logo: { bg: "#fd3a5c", color: "#fff", initials: "HJ" },
@@ -5086,7 +5086,7 @@ export const stackLayerCategories = [
       },
       {
         name: "Mixpanel",
-        tier: "Freemium",
+        tier: "Premium",
         tags: ["Product Analytics", "Events"],
         filter: ["SEO & Analytics"],
         logo: { bg: "#7856ff", color: "#fff", initials: "MX" },
@@ -5160,7 +5160,7 @@ export const stackLayerCategories = [
       },
       {
         name: "Amplitude",
-        tier: "Freemium",
+        tier: "Premium",
         tags: ["Product Analytics", "Behavioral"],
         filter: ["SEO & Analytics"],
         logo: { bg: "#1c6ef3", color: "#fff", initials: "AM" },
@@ -5306,7 +5306,7 @@ export const stackLayerCategories = [
       },
       {
         name: "Power BI",
-        tier: "Freemium",
+        tier: "Premium",
         tags: ["Data Visualization", "Microsoft"],
         filter: ["SEO & Analytics"],
         logo: { bg: "#f2c811", color: "#1c1917", initials: "BI" },
@@ -5380,7 +5380,7 @@ export const stackLayerCategories = [
       },
       {
         name: "Semrush Analytics",
-        tier: "Freemium",
+        tier: "Premium",
         tags: ["SEO Analytics", "Competitor Research"],
         filter: ["SEO & Analytics"],
         logo: { bg: "#ff6429", color: "#fff", initials: "SA" },
@@ -5588,7 +5588,7 @@ export const stackLayerCategories = [
       },
       {
         name: "PostHog",
-        tier: "Freemium",
+        tier: "Premium",
         tags: ["Product Analytics", "Open Source"],
         filter: ["SEO & Analytics"],
         logo: { bg: "#1d4ed8", color: "#fbbf24", initials: "PH" },
@@ -5710,7 +5710,7 @@ export const stackLayerCategories = [
       },
       {
         name: "Databox",
-        tier: "Freemium",
+        tier: "Premium",
         tags: ["Dashboards", "KPI Tracking"],
         filter: ["SEO & Analytics"],
         logo: { bg: "#03a9f4", color: "#fff", initials: "DB" },
