@@ -7,9 +7,38 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="css/components/pages/landing.css">
   <link rel="stylesheet" href="css/components/pages/work-selection.css">
+      <link rel="stylesheet" href="css/components/navbar.css" />
+
 </head>
 <body>
 
+      <nav class="nav-container">
+      <div class="container nav">
+        <a class="nav-logo" data-link="/index" href="#">
+          <div class="nav-logo-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 6h16M4 12h16M4 18h10" stroke="#fff" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+            </svg>
+          </div>
+          StackLayer
+        </a>
+        <ul class="nav-links">
+          <li data-link="/project-phase">Tools</li>
+          <li data-link="/discover">Discover</li>
+          <li>Community</li>
+        </ul>
+        <div class="nav-right">
+          <div class="search-bar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/>
+              <path d="M21 21l-4.35-4.35"/>
+            </svg>
+            Search AI tools...
+          </div>
+          <!-- <button class="btn-primary" data-link="/work-selection">Get Started</button> -->
+        </div>
+      </div>
+    </nav>
 
 <!-- PAGE -->
 <div class="page">
@@ -37,7 +66,7 @@
       </div>
 
       <!-- Designer (selected by default) -->
-      <div class="role-card selected" onclick="selectRole(this)">
+      <div class="role-card" onclick="selectRole(this)">
         <svg class="check-icon" viewBox="0 0 24 24" fill="none">
           <circle cx="12" cy="12" r="11" stroke="#2563eb" stroke-width="1.5"/>
           <path d="M7 12.5l3.5 3.5 6.5-7" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -60,12 +89,12 @@
     <div class="skill-label">What is your skill level?</div>
     <div class="skill-options">
       <button class="skill-btn" onclick="selectSkill(this)">Beginner</button>
-      <button class="skill-btn active" onclick="selectSkill(this)">Intermediate</button>
+      <button class="skill-btn" onclick="selectSkill(this)">Intermediate</button>
       <button class="skill-btn" onclick="selectSkill(this)">Advanced</button>
     </div>
 
     <!-- CONTINUE -->
-    <button data-link="/tools" class="btn-continue">
+    <button data-link="/project-phase" class="btn-continue">
       Continue
       <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </button>
@@ -77,13 +106,27 @@
   function selectRole(el) {
     document.querySelectorAll('.role-card').forEach(c => c.classList.remove('selected'));
     el.classList.add('selected');
+    const role = el.textContent;
+    try {
+      localStorage.setItem("primaryRole", String(role))
+    } catch (error) {
+      console.error("Failed to save primary role to local storage!")
+    }
   }
 
   function selectSkill(el) {
     document.querySelectorAll('.skill-btn').forEach(b => b.classList.remove('active'));
     el.classList.add('active');
+    const level = el.textContent;
+    try {
+      localStorage.setItem("skillLevel", String(level))
+    } catch (error) {
+      console.error("Failed to save skill level to local storage!")
+    }
+
   }
 </script>
+<script src="./js/pages/landing.js"></script>
 
 </body>
 </html>

@@ -9,48 +9,38 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/components/pages/landing.css" />
+    <link rel="stylesheet" href="css/components/navbar.css" />
     <link rel="stylesheet" href="css/components/pages/project-phase.css" />
   </head>
   <body>
     <!-- NAV -->
-    <!-- <nav class="nav-container">
+        <nav class="nav-container">
       <div class="container nav">
-        <a class="nav-logo" href="#">
+        <a class="nav-logo" data-link="/index" href="#">
           <div class="nav-logo-icon">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M4 6h16M4 12h16M4 18h10"
-                stroke="#fff"
-                stroke-width="2.5"
-                stroke-linecap="round"
-                fill="none"
-              />
+              <path d="M4 6h16M4 12h16M4 18h10" stroke="#fff" stroke-width="2.5" stroke-linecap="round" fill="none"/>
             </svg>
           </div>
           StackLayer
         </a>
         <ul class="nav-links">
-          <li><a href="#">Tools</a></li>
-          <li><a href="#">Discover</a></li>
-          <li><a href="#">Community</a></li>
+          <li data-link="/project-phase">Tools</li>
+          <li data-link="/discover">Discover</li>
+          <li>Community</li>
         </ul>
         <div class="nav-right">
           <div class="search-bar">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <circle cx="11" cy="11" r="8" />
-              <path d="M21 21l-4.35-4.35" />
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/>
+              <path d="M21 21l-4.35-4.35"/>
             </svg>
             Search AI tools...
           </div>
-          <button class="btn-primary">Get Started</button>
+          <!-- <button class="btn-primary" data-link="/work-selection">Get Started</button> -->
         </div>
       </div>
-    </nav> -->
+    </nav>
 
     <!-- HERO -->
     <section class="heros">
@@ -225,7 +215,7 @@
             <div class="card-desc">
               Shaping ideas. Brainstorming, outlining, early concepts
             </div>
-            <button id="ideation" data-link="/ai-suggestion" class="card-explore">
+            <button id="ideation" class="card-explore">
               Explore
               <svg viewBox="0 0 24 24">
                 <path
@@ -365,7 +355,7 @@
             <div class="card-desc">
               Where ideas get real. Produce visuals, scripts, outputs.
             </div>
-            <button id="creation" data-link="/ai-suggestion" class="card-explore">
+            <button id="creation" class="card-explore">
               Explore
               <svg viewBox="0 0 24 24">
                 <path
@@ -517,7 +507,7 @@
             <div class="card-desc">
               Refine and improve. Quality and performance focus
             </div>
-            <button id="optimization" data-link="/ai-suggestion" class="card-explore">
+            <button id="optimization" class="card-explore">
               Explore
               <svg viewBox="0 0 24 24">
                 <path
@@ -610,7 +600,7 @@
             <div class="card-desc">
               Share your work. Publish across all major platforms
             </div>
-            <button id="distribution" data-link="/ai-suggestion" class="card-explore">
+            <button id="distribution" class="card-explore">
               Explore
               <svg viewBox="0 0 24 24">
                 <path
@@ -715,7 +705,7 @@
             <div class="card-desc">
               Measure and learn. Performance metrics and insights
             </div>
-            <button id="analysis" data-link="/ai-suggestion" class="card-explore">
+            <button id="analysis" class="card-explore">
               Explore
               <svg viewBox="0 0 24 24">
                 <path
@@ -794,5 +784,14 @@
       </div>
       </div>
     </footer>
+    <script>
+     document.querySelectorAll(".card-explore").forEach(btn => {
+  btn.addEventListener("click", () => {
+    localStorage.setItem("selectedCategory", btn.id);
+    location.href = `/client/ai-suggestion.html?category=${String(btn.id).toLowerCase()}`;
+  });
+});
+    </script>
+    <script src="./js/pages/landing.js"></script>
   </body>
 </html>

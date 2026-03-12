@@ -14,7 +14,7 @@ body {
 
 /* ── MAIN LAYOUT ── */
 .main {
-  max-width: 1440px;
+  max-width: 1240px;
   margin: 0 auto;
   padding: clamp(16px, 2.5vw, 28px) clamp(16px, 3vw, 28px)
     clamp(40px, 5vw, 60px);
@@ -132,6 +132,7 @@ body {
   font-size: clamp(12px, 1.1vw, 13px);
   font-weight: 600;
   cursor: pointer;
+  text-decoration: none;
 }
 .btn-visit svg {
   width: 13px;
@@ -154,7 +155,7 @@ body {
 /* ── TWO-COL LAYOUT ── */
 .two-col {
   display: grid;
-  grid-template-columns: 1fr 220px;
+  grid-template-columns: 1fr 320px;
   gap: clamp(16px, 2.5vw, 24px);
   align-items: start;
 }
@@ -518,6 +519,8 @@ body {
 }
 .quick-info-row {
   display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
   justify-content: space-between;
   align-items: center;
   padding: 7px 0;
@@ -533,6 +536,7 @@ body {
 .quick-info-value {
   color: #0f172a;
   font-weight: 600;
+  text-wrap: wrap;
 }
 
 .quick-tags {

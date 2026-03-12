@@ -6,9 +6,38 @@
   <title>StackLayer – Creation</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="css/components/pages/landing.css">
+  <link rel="stylesheet" href="css/components/navbar.css">
   <link rel="stylesheet" href="css/components/pages/ai-suggestion.css">
 </head>
 <body>
+
+      <nav class="nav-container">
+      <div class="container nav">
+        <a class="nav-logo" data-link="/index" href="#">
+          <div class="nav-logo-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 6h16M4 12h16M4 18h10" stroke="#fff" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+            </svg>
+          </div>
+          StackLayer
+        </a>
+        <ul class="nav-links">
+          <li data-link="/project-phase">Tools</li>
+          <li data-link="/discover">Discover</li>
+          <li>Community</li>
+        </ul>
+        <div class="nav-right">
+          <div class="search-bar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/>
+              <path d="M21 21l-4.35-4.35"/>
+            </svg>
+            Search AI tools...
+          </div>
+          <button class="btn-primary" data-link="/work-selection">Get Started</button>
+        </div>
+      </div>
+    </nav>
 
 <!-- MAIN -->
 <div class="main">
@@ -16,31 +45,33 @@
   <!-- BREADCRUMB -->
   <div class="breadcrumb">
     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
-    <a href="#">Creation</a>
+    <a href="#">Tools</a>
     <span class="sep">›</span>
-    <span class="current">Video Editing</span>
+    <span class="current">Creation</span>
   </div>
 
   <!-- PAGE HEADER -->
   <div class="page-header">
-    <h1>Creation</h1>
-    <p>Tools that help you produce and build your work, from high-quality scriptwriting to professional video rendering.</p>
+    <h1 id="headerText">Creation</h1>
+    <p id="descText">Tools that help you produce and build your work, from high-quality scriptwriting to professional video rendering.</p>
   </div>
 
   <!-- FILTER TABS -->
   <div class="filter-bars">
-    <button class="filter-tab">Script Writing</button>
-    <button class="filter-tab active">Video Editing</button>
-    <button class="filter-tab">Thumbnail Design</button>
-    <button class="filter-tab">AI Voiceover</button>
-    <button class="filter-clear">
+    <button data-filter="Script Writing" class="filter-tab">Script Writing</button>
+    <button data-filter="Video Editing" class="filter-tab active">Video Editing</button>
+    <button data-filter="Thumbnail Design" class="filter-tab">Thumbnail Design</button>
+    <button data-filter="AI Voiceover" class="filter-tab">AI Voiceover</button>
+    <button data-filter="SEO & Analytics" class="filter-tab">SEO & Analytics</button>
+    <button data-filter="Social Media" class="filter-tab">Social Media</button>
+    <button class="filter-clear clear-filter">
       <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-      Clear Filters
+      Clear Filter
     </button>
   </div>
 
   <!-- TOOLS GRID -->
-  <div class="tools-grid">
+  <div id="toolsGrid" class="tools-grid">
 
     <!-- Runway Gen-2 -->
     <div class="tool-card">
@@ -164,21 +195,8 @@
 
 </div>
 
-<script>
-  document.querySelectorAll('.filter-tab').forEach(tab => {
-    tab.addEventListener('click', () => {
-      document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-    });
-  });
-
-  document.querySelectorAll('.page-btn:not(:first-child):not(:last-child)').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.page-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-    });
-  });
-</script>
+<script src="./js/pages/landing.js"></script>
+<script  type="module" src="./js/pages/ai-suggestion.js"></script>
 
 </body>
 </html>

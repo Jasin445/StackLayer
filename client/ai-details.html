@@ -6,9 +6,38 @@
   <title>StackLayer – Runway Gen-2</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="css/components/pages/landing.css">
+    <link rel="stylesheet" href="css/components/navbar.css">
     <link rel="stylesheet" href="css/components/pages/ai-details.css">
 </head>
 <body>
+    <nav class="nav-container">
+      <div class="container nav">
+        <a class="nav-logo" data-link="/index" href="#">
+          <div class="nav-logo-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 6h16M4 12h16M4 18h10" stroke="#fff" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+            </svg>
+          </div>
+          StackLayer
+        </a>
+        <ul class="nav-links">
+          <li data-link="/project-phase">Tools</li>
+          <li data-link="/discover">Discover</li>
+          <li>Community</li>
+        </ul>
+        <div class="nav-right">
+          <div class="search-bar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/>
+              <path d="M21 21l-4.35-4.35"/>
+            </svg>
+            Search AI tools...
+          </div>
+          <button class="btn-primary" data-link="/work-selection">Get Started</button>
+        </div>
+      </div>
+    </nav>
+
 
 <!-- MAIN -->
 <div class="main">
@@ -17,7 +46,7 @@
   <div class="breadcrumb">
     <a href="#">Tools</a>
     <span class="sep">›</span>
-    <span class="current">Runway Gen-2</span>
+    <span class="current toolName">Runway Gen-2</span>
   </div>
 
   <!-- TOOL HEADER -->
@@ -32,16 +61,16 @@
     </div>
     <div class="tool-header-info">
       <div class="tool-name-row">
-        <span class="tool-name">Runway Gen-2</span>
-        <span class="badge-premium">PREMIUM</span>
+        <span class="tool-name toolName">Runway Gen-2</span>
+        <span id="tier" class="badge-premium">PREMIUM</span>
       </div>
-      <div class="tool-header-desc">Multi-modal AI research company shaping the next era of art, entertainment and human creativity. Experience professional-grade video synthesis directly from your browser.</div>
+      <div id="detailedDesc" class="tool-header-desc">Multi-modal AI research company shaping the next era of art, entertainment and human creativity. Experience professional-grade video synthesis directly from your browser.</div>
       <div class="tool-actions">
-        <button class="btn-visit">
+        <a id="visitUrl" class="btn-visit">
           Visit Tool
           <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-        </button>
-        <button class="btn-back">Back to Tools</button>
+        </a>
+        <button id="backBtn" class="btn-back">Back to Tools</button>
       </div>
     </div>
   </div>
@@ -59,9 +88,9 @@
           Best For
         </div>
         <div class="use-case-label">PRIMARY USE CASE</div>
-        <div class="use-case-name">Creation Stage</div>
+        <div id="stage" class="use-case-name">Creation Stage</div>
         <div class="best-for-inner">
-          <div class="best-for-text">Perfect for high-quality video and visual generation. Used by professional creators to prototype scenes, generate cinematic transitions, and animate static images with unmatched precision.</div>
+          <div id="bestFor" class="best-for-text">Perfect for high-quality video and visual generation. Used by professional creators to prototype scenes, generate cinematic transitions, and animate static images with unmatched precision.</div>
           <div class="best-for-img">
             <!-- face SVG matching earlier pages -->
             <svg viewBox="0 0 140 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
@@ -113,7 +142,7 @@
         <div class="analysis-title">Analysis</div>
         <div class="analysis-grid">
 
-          <div class="analysis-box strengths">
+          <div id="strengthContainer" class="analysis-box strengths">
             <div class="analysis-box-title">
               <svg viewBox="0 0 24 24" stroke="#16a34a" fill="none" stroke-width="2"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3H14z"/><path d="M7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
               Strengths
@@ -132,7 +161,7 @@
             </div>
           </div>
 
-          <div class="analysis-box limitations">
+          <div id="limitationContainer" class="analysis-box limitations">
             <div class="analysis-box-title">
               <svg viewBox="0 0 24 24" stroke="#d97706" fill="none" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
               Limitations
@@ -157,7 +186,7 @@
       <!-- PRICING -->
       <div class="pricing-section">
         <div class="pricing-title">Pricing Overview</div>
-        <div class="pricing-grid">
+        <div id="pricingContainer" class="pricing-grid">
 
           <div class="pricing-card">
             <div class="pricing-tier">STARTER</div>
@@ -214,34 +243,37 @@
           <button class="alt-see-all">See All</button>
         </div>
 
-        <div class="alt-item">
-          <div class="alt-item-left">
-            <div class="alt-icon pika">
-              <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        <div id="alternativesContainer">
+          
+          <div class="alt-item">
+            <div class="alt-item-left">
+              <div class="alt-icon pika">
+                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+              <div>
+                <div class="alt-name">Pika</div>
+                <div class="alt-desc">Video from text &amp; image</div>
+              </div>
             </div>
-            <div>
-              <div class="alt-name">Pika</div>
-              <div class="alt-desc">Video from text &amp; image</div>
-            </div>
+            <svg class="alt-chevron" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
-          <svg class="alt-chevron" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-
-        <div class="alt-item">
-          <div class="alt-item-left">
-            <div class="alt-icon kalber">
-              <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          
+          <div class="alt-item">
+            <div class="alt-item-left">
+              <div class="alt-icon kalber">
+                <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+              </div>
+              <div>
+                <div class="alt-name">Kalber</div>
+                <div class="alt-desc">Creative storytelling tool</div>
+              </div>
             </div>
-            <div>
-              <div class="alt-name">Kalber</div>
-              <div class="alt-desc">Creative storytelling tool</div>
-            </div>
+            <svg class="alt-chevron" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
-          <svg class="alt-chevron" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          
         </div>
-
         <!-- QUICK INFO -->
-        <div class="quick-info">
+        <div id="quickInfoContainer" class="quick-info">
           <div class="quick-info-title">QUICK INFO</div>
           <div class="quick-info-row">
             <span class="quick-info-label">Founded</span>
@@ -255,7 +287,7 @@
             <span class="quick-info-label">Community Size</span>
             <span class="quick-info-value">1M+ users</span>
           </div>
-          <div class="quick-tags">
+          <div id="quickTagContainer" class="quick-tags">
             <span class="quick-tag">VIDEO</span>
             <span class="quick-tag">AI RESEARCH</span>
             <span class="quick-tag">ART</span>
@@ -295,6 +327,7 @@
             </div>
         </div>
     </footer>
-
+    <script src="./js/pages/landing.js"></script>
+    <script type="module" src="./js/pages/ai-details.js"></script>
 </body>
 </html>

@@ -4,22 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>StackLayer</title>
-    <!-- Base URL ensures all relative paths in injected HTML work -->
-  <base href="/client/" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/components/pages/landing.css" />
     <link rel="stylesheet" href="css/components/navbar.css" />
-    <!-- <link rel="stylesheet" href="css/components/pages/landing.css" />
-    <link rel="stylesheet" href="css/components/pages/work-selection.css" /> -->
-    <!-- <link rel="stylesheet" href="css/components/pages/discover.css" /> -->
-    <!-- <link rel="stylesheet" href="css/components/pages/ai-suggestion.css" />
-    <link rel="stylesheet" href="css/components/pages/ai-details.css" />
-    <link rel="stylesheet" href="css/components/pages/project-phase.css" /> -->
   </head>
   <body>
 
-    <nav class="nav-container">
+    <!-- NAV -->
+       <nav class="nav-container">
       <div class="container nav">
-        <a class="nav-logo" data-link="/" href="#">
+        <a class="nav-logo" data-link="/index" href="#">
           <div class="nav-logo-icon">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path d="M4 6h16M4 12h16M4 18h10" stroke="#fff" stroke-width="2.5" stroke-linecap="round" fill="none"/>
@@ -28,9 +25,9 @@
           StackLayer
         </a>
         <ul class="nav-links">
-          <li data-link="/tools">Tools</li>
+          <li data-link="/project-phase">Tools</li>
           <li data-link="/discover">Discover</li>
-          <li data-link="/">Community</li>
+          <li>Community</li>
         </ul>
         <div class="nav-right">
           <div class="search-bar">
@@ -45,8 +42,178 @@
       </div>
     </nav>
 
-    <div id="app"></div>
+    <div class="container">
+      <!-- HERO -->
+      <section class="hero">
+        <div class="hero-left">
+          <div class="badge">
+            <span class="badge-dot"></span>
+            NEXT-GEN INTELLIGENCE
+          </div>
+          <h1>
+            AI tools mapped to<br /><span class="accent">real workflows</span>
+          </h1>
+          <p>
+            Find the right tool for your exact stage of work in minutes. Stop
+            searching and start automating your high-impact processes with
+            intelligence.
+          </p>
+          <div class="hero-buttons">
+            <button data-link="/work-selection" class="btn-explore">Explore Ai</button>
+            <button class="btn-demo">
+              <span class="play-icon">
+                <svg viewBox="0 0 10 12"><polygon points="1,1 9,6 1,11" /></svg>
+              </span>
+              Watch Demo
+            </button>
+          </div>
+          <section class="trusted">
+            <div class="trusted-label">TRUSTED BY SCALING TEAMS</div>
+            <div class="trusted-logos">
+              <div class="logo-item">
+                <svg viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="3" />
+                  <line x1="12" y1="2" x2="12" y2="6" />
+                  <line x1="12" y1="18" x2="12" y2="22" />
+                  <line x1="2" y1="12" x2="6" y2="12" />
+                  <line x1="18" y1="12" x2="22" y2="12" />
+                </svg>
+                NEXUS
+              </div>
+              <div class="logo-item">
+                <svg viewBox="0 0 24 24">
+                  <rect x="3" y="3" width="7" height="7" />
+                  <rect x="14" y="3" width="7" height="7" />
+                  <rect x="3" y="14" width="7" height="7" />
+                  <rect x="14" y="14" width="7" height="7" />
+                </svg>
+                FLOW
+              </div>
+              <div class="logo-item">
+                <svg viewBox="0 0 24 24">
+                  <rect x="2" y="2" width="20" height="20" rx="2" />
+                  <line x1="8" y1="2" x2="8" y2="22" />
+                  <line x1="2" y1="12" x2="22" y2="12" />
+                </svg>
+                DATACORE
+              </div>
+              <div class="logo-item">
+                <svg viewBox="0 0 24 24">
+                  <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                  <path d="M2 17l10 5 10-5" />
+                  <path d="M2 12l10 5 10-5" />
+                </svg>
+                SYNC
+              </div>
+            </div>
+          </section>
+        </div>
 
-    <script src="js/pages/router.js"></script>
+        <div class="hero-right">
+          <div class="hero-image-wrap">
+            <!-- AI face placeholder rendered with SVG -->
+            <div class="face-placeholder">
+              <img src="./assets/images/hero-img.png" alt="hero img" />
+            </div>
+          </div>
+
+          <!-- Stat card -->
+          <div class="stat-card">
+            <div class="stat-icon">
+              <svg viewBox="0 0 24 24">
+                <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
+                <polyline points="16 7 22 7 22 13" />
+              </svg>
+            </div>
+            <div class="stat-text">
+              <div class="stat-title">98% Mapping Accuracy</div>
+              <div class="stat-sub">
+                Context-aware tool matching engine active.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+          </div>
+
+
+      <!-- TRUSTED -->
+
+      <!-- FEATURES -->
+      
+      <section class="features">
+               <div class="container features-inner">
+               <div class="feature">
+                   <div class="feature-icon">
+                       <svg viewBox="0 0 24 24">
+                           <circle cx="12" cy="12" r="3" />
+                           <path
+                           d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"
+                           />
+                        </svg>
+                    </div>
+                    <h3>Context Aware</h3>
+                    <p>
+                        Automatically detects your project stage and recommends tools that
+                        fit.
+                    </p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24">
+              <rect x="3" y="3" width="7" height="7" />
+              <rect x="14" y="3" width="7" height="7" />
+              <rect x="3" y="14" width="7" height="7" />
+              <line x1="14" y1="17.5" x2="21" y2="17.5" />
+              <line x1="17.5" y1="14" x2="17.5" y2="21" />
+            </svg>
+        </div>
+        <h3>Instant Mapping</h3>
+        <p>
+            See exactly how new AI tools plug into your existing software stack.
+        </p>
+    </div>
+    <div class="feature">
+        <div class="feature-icon">
+            <svg viewBox="0 0 24 24">
+                <rect x="2" y="3" width="20" height="14" rx="2" />
+                <path d="M8 21h8M12 17v4" />
+            </svg>
+        </div>
+        <h3>Deep Integration</h3>
+        <p>
+            Supports 500+ tools including
+            <a href="#">Slack, Jira, Notion, and GitHub.</a>
+        </p>
+    </div>
+</div>
+      </section>
+
+      <!-- FOOTER -->
+      <footer class="">
+        <div class="container footer-container">
+            <div class="footer-logo">
+                <svg viewBox="0 0 24 24">
+                    <path
+                    d="M4 6h16M4 12h16M4 18h10"
+                    stroke="#64748b"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    fill="none"
+                    />
+                </svg>
+                StackLayer AI
+            </div>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="footer-copy">
+                © 2026 StackLayer Inc. All rights reserved.
+            </div>
+        </div>
+    </footer>
+    <script src="./js/pages/landing.js"></script>
   </body>
 </html>
