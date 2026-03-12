@@ -788,7 +788,7 @@
      document.querySelectorAll(".card-explore").forEach(btn => {
   btn.addEventListener("click", () => {
     localStorage.setItem("selectedCategory", btn.id);
-    location.href = `/client/ai-suggestion.html?category=${String(btn.id).toLowerCase()}`;
+    location.href = `/ai-suggestion.html?category=${String(btn.id).toLowerCase()}`;
   });
 });
     </script>

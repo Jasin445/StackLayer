@@ -7,13 +7,6 @@ const paginationInfo = document.querySelector(".pagination-info");
 const heading = document.querySelector("#headerText");
 const subtitle = document.querySelector("#descText");
 
-stackLayerCategories.forEach((c, i) => {
-  if (!c || !c.category) {
-    console.log("Malformed at index:", i, c);
-  }
-  console.log("lknfvd")
-});
-
 // ── CATEGORY FROM URL/STORAGE ──
 const params = new URLSearchParams(location.search);
 const category = params.get("category") || localStorage.getItem("selectedCategory");
@@ -162,7 +155,7 @@ toolsContainer.addEventListener("click", (e) => {
   if (!AIName) return;
 
   localStorage.setItem("toolToView", AIName);
-  location.href = `/client/ai-details.html?tool=${String(AIName).toLowerCase()}`;
+  location.href = `/ai-details.html?tool=${String(AIName).toLowerCase()}`;
 });
 
 // ── INIT ──
