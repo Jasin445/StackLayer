@@ -186,5 +186,5 @@ window.addEventListener("DOMContentLoaded", () => {
       filter.style.display = "block";
     });
     renderSuggestion();
-  }, 300);
+  }, 500);
 });
