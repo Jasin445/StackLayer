@@ -12,24 +12,26 @@ const alternativesContainer = document.querySelector("#alternativesContainer");
 const quickInfoContainer = document.querySelector("#quickInfoContainer");
 const pricingContainer = document.querySelector("#pricingContainer");
 const backBtn = document.querySelector("#backBtn");
+const breadCrumb = document.querySelector("#breadCrumb");
+const category = localStorage.getItem("selectedCategory");
 
 const param = new URLSearchParams(location.search);
 const AIName = param.get("tool") || localStorage.getItem("toolToView");
 const AITools = stackLayerCategories.find(
-  (allTools) =>
-    allTools.category.toLowerCase() ===
-    localStorage.getItem("selectedCategory").toLowerCase(),
+  (allTools) => allTools.category.toLowerCase() === category.toLowerCase(),
 );
-console.log(AITools);
+// console.log(AITools);
 const AIToDisplay = AITools?.tools?.find(
   (data) => data.name.toLowerCase() === AIName.toLowerCase(),
 );
-console.log(AIToDisplay);
+// console.log(AIToDisplay);
 
 toolName.forEach((el) => {
   el.textContent = AIToDisplay?.name;
 });
 
+breadCrumb.textContent = category;
+breadCrumb.style.textTransform = "capitalize";
 description.textContent = AIToDisplay?.detailedDesc;
 stage.textContent = AIToDisplay?.stage;
 tier.textContent = AIToDisplay?.tier;
@@ -66,10 +68,13 @@ limitationContainer.appendChild(limitationWrapper);
 
 const alternativesUI = AIToDisplay?.alternatives
   ?.map((data) => {
-    return ` <div class="alt-item">
+    const logo = getToolLogo(data?.name, stackLayerCategories);
+    return ` <div data-tool="${data?.name}" class="alt-item">
             <div class="alt-item-left">
-              <div class="alt-icon pika">
-                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                <div class="tool-icon icon-elevenlabs" style="background-color: ${logo?.bg || "blue"}; padding:8px; border-radius: 14px;">
+              <div style="color: ${logo?.color || "white"};">
+                ${logo?.initials ?? "???"}
+              </div>
               </div>
               <div>
                 <div class="alt-name">${data?.name}</div>
@@ -83,7 +88,45 @@ const alternativesUI = AIToDisplay?.alternatives
 
 alternativesContainer.innerHTML = alternativesUI;
 
-console.log(AIToDisplay)
+function getToolLogo(name, stackData) {
+  // Flatten all tools from all categories into one array
+  const allTools = stackData.flatMap((category) => category.tools);
+  console.log("all tools", allTools, name);
+
+  const tool = allTools.find(
+    (t) => t.name.toLowerCase() === name.toLowerCase(),
+  );
+
+  return tool?.logo ?? null;
+}
+function getToolLinks(names, stackData) {
+  // Flatten all tools from all categories into one array
+  const allTools = stackData.flatMap((category) => category.tools);
+
+  return names.reduce((acc, name) => {
+    const tool = allTools.find(
+      (t) => t.name.toLowerCase() === name.toLowerCase(),
+    );
+    acc[name] = tool ? tool.visitUrl : null;
+    return acc;
+  }, {});
+}
+
+if (AIToDisplay?.alternatives) {
+  const altNames = AIToDisplay.alternatives.map((a) => a.name);
+  const links = getToolLinks(altNames, stackLayerCategories);
+
+  document.querySelectorAll(".alt-item").forEach((alt) => {
+    const name = alt.dataset.tool;
+    const url = links[name];
+
+    if (url) {
+      alt.addEventListener("click", () => {
+        window.location.href = `/ai-details.html?tool=${name}`;
+      });
+    }
+  });
+}
 
 const quickInfoUI = Object.entries(AIToDisplay?.quickInfo)
   ?.map(([key, value]) => {

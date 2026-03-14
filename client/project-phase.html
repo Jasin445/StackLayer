@@ -215,7 +215,7 @@
             <div class="card-desc">
               Shaping ideas. Brainstorming, outlining, early concepts
             </div>
-            <button id="ideation" class="card-explore">
+            <button id="ideation" class="card-explore animate-pulse">
               Explore
               <svg viewBox="0 0 24 24">
                 <path
@@ -355,7 +355,7 @@
             <div class="card-desc">
               Where ideas get real. Produce visuals, scripts, outputs.
             </div>
-            <button id="creation" class="card-explore">
+            <button id="creation" class="card-explore animate-pulse">
               Explore
               <svg viewBox="0 0 24 24">
                 <path
@@ -507,7 +507,7 @@
             <div class="card-desc">
               Refine and improve. Quality and performance focus
             </div>
-            <button id="optimization" class="card-explore">
+            <button id="optimization" class="card-explore animate-pulse">
               Explore
               <svg viewBox="0 0 24 24">
                 <path
@@ -600,7 +600,7 @@
             <div class="card-desc">
               Share your work. Publish across all major platforms
             </div>
-            <button id="distribution" class="card-explore">
+            <button id="distribution" class="card-explore animate-pulse">
               Explore
               <svg viewBox="0 0 24 24">
                 <path
@@ -705,7 +705,7 @@
             <div class="card-desc">
               Measure and learn. Performance metrics and insights
             </div>
-            <button id="analysis" class="card-explore">
+            <button id="analysis" class="card-explore animate-pulse">
               Explore
               <svg viewBox="0 0 24 24">
                 <path
@@ -785,8 +785,10 @@
       </div>
     </footer>
     <script>
-     document.querySelectorAll(".card-explore").forEach(btn => {
-  btn.addEventListener("click", () => {
+     document.querySelectorAll(".card-explore animate-pulse").forEach(btn => {
+  btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
     localStorage.setItem("selectedCategory", btn.id);
     location.href = `/ai-suggestion.html?category=${String(btn.id).toLowerCase()}`;
   });

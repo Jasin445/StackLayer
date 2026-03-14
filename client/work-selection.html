@@ -1,23 +1,30 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>StackLayer – Onboarding</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="css/components/pages/landing.css">
-  <link rel="stylesheet" href="css/components/pages/work-selection.css">
-      <link rel="stylesheet" href="css/components/navbar.css" />
-
-</head>
-<body>
-
-      <nav class="nav-container">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StackLayer – Onboarding</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/components/pages/landing.css" />
+    <link rel="stylesheet" href="css/components/pages/work-selection.css" />
+    <link rel="stylesheet" href="css/components/navbar.css" />
+  </head>
+  <body>
+    <nav class="nav-container">
       <div class="container nav">
         <a class="nav-logo" data-link="/index" href="#">
           <div class="nav-logo-icon">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4 6h16M4 12h16M4 18h10" stroke="#fff" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+              <path
+                d="M4 6h16M4 12h16M4 18h10"
+                stroke="#fff"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                fill="none"
+              />
             </svg>
           </div>
           StackLayer
@@ -29,9 +36,14 @@
         </ul>
         <div class="nav-right">
           <div class="search-bar">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="11" cy="11" r="8"/>
-              <path d="M21 21l-4.35-4.35"/>
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <circle cx="11" cy="11" r="8" />
+              <path d="M21 21l-4.35-4.35" />
             </svg>
             Search AI tools...
           </div>
@@ -40,93 +52,171 @@
       </div>
     </nav>
 
-<!-- PAGE -->
-<div class="page">
-  <div class="card">
-    <h1 class="card-title">What do you do?</h1>
-    <p class="card-sub">Select your primary role to customize your workspace.</p>
+    <!-- PAGE -->
+    <div class="page">
+      <div class="card">
+        <h1 class="card-title">What do you do?</h1>
+        <p class="card-sub">
+          Select your primary role to customize your workspace.
+        </p>
 
-    <!-- ROLES -->
-    <div class="roles">
-      <!-- Content Creator -->
-      <div class="role-card" onclick="selectRole(this)">
-        <svg class="check-icon" viewBox="0 0 24 24" fill="none">
-          <circle cx="12" cy="12" r="11" stroke="#2563eb" stroke-width="1.5"/>
-          <path d="M7 12.5l3.5 3.5 6.5-7" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        <div class="role-icon-wrap">
-          <!-- pen + lines icon -->
-          <svg viewBox="0 0 24 24">
-            <path d="M12 20h9" stroke-linecap="round"/>
-            <path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4 12.5-12.5z" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-        <div class="role-name">Content Creator</div>
-        <div class="role-desc">Writers, editors, and marketers</div>
-      </div>
+        <!-- ROLES -->
+        <div class="roles">
+          <!-- Content Creator -->
+          <div class="role-card" onclick="selectRole(this)">
+            <svg class="check-icon" viewBox="0 0 24 24" fill="none">
+              <circle
+                cx="12"
+                cy="12"
+                r="11"
+                stroke="#2563eb"
+                stroke-width="1.5"
+              />
+              <path
+                d="M7 12.5l3.5 3.5 6.5-7"
+                stroke="#2563eb"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            <div class="role-icon-wrap">
+              <!-- pen + lines icon -->
+              <svg viewBox="0 0 24 24">
+                <path d="M12 20h9" stroke-linecap="round" />
+                <path
+                  d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4 12.5-12.5z"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <div class="role-name">Content Creator</div>
+            <div class="role-desc">Writers, editors, and marketers</div>
+          </div>
 
-      <!-- Designer (selected by default) -->
-      <div class="role-card" onclick="selectRole(this)">
-        <svg class="check-icon" viewBox="0 0 24 24" fill="none">
-          <circle cx="12" cy="12" r="11" stroke="#2563eb" stroke-width="1.5"/>
-          <path d="M7 12.5l3.5 3.5 6.5-7" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        <div class="role-icon-wrap">
-          <!-- palette icon -->
-          <svg viewBox="0 0 24 24">
-            <path d="M12 2C6.48 2 2 6.48 2 12c0 5.52 4.48 10 10 10 1.1 0 2-.9 2-2 0-.52-.2-1-.52-1.36-.3-.34-.48-.78-.48-1.24 0-1.1.9-2 2-2h2.36c3.1 0 5.64-2.54 5.64-5.64C22 6.18 17.52 2 12 2z" stroke-linecap="round" stroke-linejoin="round"/>
-            <circle cx="8.5" cy="10.5" r="1" fill="#2563eb" stroke="none"/>
-            <circle cx="12" cy="7.5" r="1" fill="#2563eb" stroke="none"/>
-            <circle cx="15.5" cy="10.5" r="1" fill="#2563eb" stroke="none"/>
-          </svg>
+          <!-- Designer (selected by default) -->
+          <div class="role-card" onclick="selectRole(this)">
+            <svg class="check-icon" viewBox="0 0 24 24" fill="none">
+              <circle
+                cx="12"
+                cy="12"
+                r="11"
+                stroke="#2563eb"
+                stroke-width="1.5"
+              />
+              <path
+                d="M7 12.5l3.5 3.5 6.5-7"
+                stroke="#2563eb"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            <div class="role-icon-wrap">
+              <!-- palette icon -->
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12c0 5.52 4.48 10 10 10 1.1 0 2-.9 2-2 0-.52-.2-1-.52-1.36-.3-.34-.48-.78-.48-1.24 0-1.1.9-2 2-2h2.36c3.1 0 5.64-2.54 5.64-5.64C22 6.18 17.52 2 12 2z"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <circle cx="8.5" cy="10.5" r="1" fill="#2563eb" stroke="none" />
+                <circle cx="12" cy="7.5" r="1" fill="#2563eb" stroke="none" />
+                <circle
+                  cx="15.5"
+                  cy="10.5"
+                  r="1"
+                  fill="#2563eb"
+                  stroke="none"
+                />
+              </svg>
+            </div>
+            <div class="role-name">Designer</div>
+            <div class="role-desc">UI/UX, graphic, and product designers</div>
+          </div>
         </div>
-        <div class="role-name">Designer</div>
-        <div class="role-desc">UI/UX, graphic, and product designers</div>
+
+        <!-- SKILL LEVEL -->
+        <div class="skill-label">What is your skill level?</div>
+        <div class="skill-options">
+          <button class="skill-btn" onclick="selectSkill(this)">
+            Beginner
+          </button>
+          <button class="skill-btn" onclick="selectSkill(this)">
+            Intermediate
+          </button>
+          <button class="skill-btn" onclick="selectSkill(this)">
+            Advanced
+          </button>
+        </div>
+
+        <!-- CONTINUE -->
+        <button
+          id="continueBtn"
+          data-link="/project-phase"
+          class="btn-continue"
+        >
+          Continue
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M5 12h14M13 6l6 6-6 6"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+        <p class="card-note">
+          You can change these settings later in your profile.
+        </p>
       </div>
     </div>
 
-    <!-- SKILL LEVEL -->
-    <div class="skill-label">What is your skill level?</div>
-    <div class="skill-options">
-      <button class="skill-btn" onclick="selectSkill(this)">Beginner</button>
-      <button class="skill-btn" onclick="selectSkill(this)">Intermediate</button>
-      <button class="skill-btn" onclick="selectSkill(this)">Advanced</button>
-    </div>
+    <script>
+      const btn = document.querySelector("#continueBtn");
+      btn.disabled = true;
+      let roleIsSelected = false
+      let skillIsSelected = false
+      console.log(btn);
+      function selectRole(el) {
+        document
+          .querySelectorAll(".role-card")
+          .forEach((c) => c.classList.remove("selected"));
+        el.classList.add("selected");
+        const role = el.textContent;
+        // btn.disabled = false;
+        roleIsSelected = true;
+        try {
+          localStorage.setItem("primaryRole", String(role));
+        } catch (error) {
+          console.error("Failed to save primary role to local storage!");
+        }
+         if(roleIsSelected && skillIsSelected){
+        btn.disabled = false;
+      }
+      }
 
-    <!-- CONTINUE -->
-    <button data-link="/project-phase" class="btn-continue">
-      Continue
-      <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </button>
-    <p class="card-note">You can change these settings later in your profile.</p>
-  </div>
-</div>
+      function selectSkill(el) {
+        document
+          .querySelectorAll(".skill-btn")
+          .forEach((b) => b.classList.remove("active"));
+        el.classList.add("active");
+        const level = el.textContent;
+        // btn.disabled = false;
+        skillIsSelected = true;
+        try {
+          localStorage.setItem("skillLevel", String(level));
+        } catch (error) {
+          console.error("Failed to save skill level to local storage!");
+        }
+         if(roleIsSelected && skillIsSelected){
+        btn.disabled = false;
+      }
+      }
 
-<script>
-  function selectRole(el) {
-    document.querySelectorAll('.role-card').forEach(c => c.classList.remove('selected'));
-    el.classList.add('selected');
-    const role = el.textContent;
-    try {
-      localStorage.setItem("primaryRole", String(role))
-    } catch (error) {
-      console.error("Failed to save primary role to local storage!")
-    }
-  }
 
-  function selectSkill(el) {
-    document.querySelectorAll('.skill-btn').forEach(b => b.classList.remove('active'));
-    el.classList.add('active');
-    const level = el.textContent;
-    try {
-      localStorage.setItem("skillLevel", String(level))
-    } catch (error) {
-      console.error("Failed to save skill level to local storage!")
-    }
-
-  }
-</script>
-<script src="./js/pages/landing.js"></script>
-
-</body>
+     
+    </script>
+    <script src="./js/pages/landing.js"></script>
+  </body>
 </html>

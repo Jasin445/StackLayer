@@ -59,7 +59,7 @@ const renderSuggestion = () => {
           <div class="card-top">
             <div class="tool-icon icon-elevenlabs" style="background-color: ${tool.logo.bg};">
               <div style="color: ${tool.logo.color};">
-                ${tool.logo.initials}
+                ${tool.logo.initials ?? "N/A"}
               </div>
             </div>
             <span class="badge badge-${tierClass}">${tool.tier}</span>

@@ -195,7 +195,15 @@ background: linear-gradient(160deg, #eef3fb 0%, #f8fafc 60%, #edf2fa 100%);
       margin-bottom: 14px;
     }
 
+    .btn-continue:disabled {
+      background: #ebebeb;
+      color: gray;
+      cursor:not-allowed;
+    }
+
     .btn-continue svg { width: 16px; height: 16px; stroke: #fff; fill: none; stroke-width: 2.5; }
+
+    .btn-continue:disabled svg { width: 16px; height: 16px; stroke: gray; fill: none; stroke-width: 2.5; }
 
     .card-note {
       font-size: clamp(11px, 1vw, 12px);

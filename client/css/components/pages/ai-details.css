@@ -33,11 +33,16 @@ body {
   color: #94a3b8;
   text-decoration: none;
 }
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
 .breadcrumb .sep {
   font-size: 11px;
 }
 .breadcrumb .current {
-  color: #64748b;
+  color: #2563eb;
 }
 
 /* ── TOOL HEADER ── */

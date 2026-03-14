@@ -86,36 +86,41 @@ body {
   box-shadow: 0 6px 28px rgba(0, 0, 0, 0.11);
   display: flex;
   flex-direction: column;
-  width: clamp(120px, 15vw, 175px);
+  width: clamp(120px, 15vw, 205px);
   transform-origin: bottom center;
   bottom: 0;
 }
 
 .stage-card.c1 {
-  transform: rotate(-14deg);
-  left: calc(50% - clamp(310px, 39vw, 455px));
+  transform: rotate(-17deg) translateY(50px);
+  left: calc(49% - clamp(310px, 39vw, 475px));
   z-index: 1;
 }
 .stage-card.c2 {
   transform: rotate(-7deg);
-  left: calc(50% - clamp(186px, 23vw, 272px));
+  left: calc(49% - clamp(186px, 23vw, 282px));
   z-index: 2;
 }
 .stage-card.c3 {
   transform: translateX(-50%);
-  left: 50%;
+  left: 49.5%;
   z-index: 5;
   width: clamp(140px, 17vw, 195px);
 }
 .stage-card.c4 {
   transform: rotate(7deg);
-  right: calc(50% - clamp(186px, 23vw, 272px));
+  right: calc(50% - clamp(186px, 23vw, 282px));
   z-index: 2;
 }
 .stage-card.c5 {
-  transform: rotate(14deg);
-  right: calc(50% - clamp(310px, 39vw, 455px));
+  transform: rotate(17deg) translateY(50px);
+  right: calc(50% - clamp(310px, 39vw, 475px));
   z-index: 1;
+}
+
+.stage-card:hover {
+  /* z-index: 3; */
+  box-shadow: 3px 10px 12px rgba(0, 0, 0, 0.11);
 }
 
 .card-img-wrap {
@@ -171,6 +176,14 @@ body {
   stroke: #2563eb;
   fill: none;
   stroke-width: 2.5;
+}
+
+.card-explore:hover {
+  text-decoration: underline;
+}
+
+.card-explore:hover svg {
+  transform: translateX(2px);
 }
 
 /* ── TRUSTED ── */
@@ -264,6 +277,34 @@ body {
 .footer-color {
     background-color: #eef2f9;
     margin-top: 20px;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+        transform: scale(1.05);
+        
+      }
+      
+    90% {
+        opacity: 0.5;
+        transform: scale(1);
+  }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+  }
+}
+
+.animate-pulse {
+  animation: pulse 4.3s ease-in-out forwards;
+  will-change: opacity, transform;
+
 }
 
 /* ── RESPONSIVE ── */
