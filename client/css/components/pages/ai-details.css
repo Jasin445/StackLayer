@@ -55,7 +55,8 @@ body {
 .tool-logo {
   width: clamp(56px, 8vw, 72px);
   height: clamp(56px, 8vw, 72px);
-  background: #111;
+  background: white;
+  border: 1px solid rgb(235, 235, 235);
   border-radius: 14px;
   flex-shrink: 0;
   display: flex;
@@ -559,6 +560,309 @@ body {
   color: #64748b;
 }
 
+/* ── SKELETON PULSE ANIMATION ── */
+@keyframes skeleton-pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.38; }
+}
+
+.skel {
+  background: #e2e8f0;
+  border-radius: 6px;
+  animation: skeleton-pulse 1.6s ease-in-out infinite;
+}
+
+/* ── BREADCRUMB SKELETON ── */
+.skel-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: clamp(14px, 2vw, 20px);
+}
+.skel-breadcrumb .skel { height: 12px; border-radius: 4px; }
+.skel-breadcrumb .skel:nth-child(1) { width: 38px; animation-delay: 0s; }
+.skel-breadcrumb .skel:nth-child(2) { width: 8px;  animation-delay: 0.05s; }
+.skel-breadcrumb .skel:nth-child(3) { width: 90px; animation-delay: 0.1s; }
+
+/* ── TOOL HEADER SKELETON ── */
+.skel-tool-header {
+  display: flex;
+  align-items: flex-start;
+  gap: clamp(14px, 2vw, 20px);
+  margin-bottom: clamp(16px, 2.5vw, 24px);
+}
+.skel-tool-header-info { flex: 1; }
+
+.skel-tool-name-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.skel-tool-name-row .skel-title {
+  height: clamp(22px, 3vw, 28px);
+  width: clamp(160px, 22vw, 220px);
+  border-radius: 6px;
+  animation-delay: 0.05s;
+}
+.skel-tool-name-row .skel-badge {
+  height: 22px;
+  width: 70px;
+  border-radius: 5px;
+  animation-delay: 0.1s;
+}
+
+.skel-desc-block { margin-bottom: clamp(14px, 2vw, 18px); }
+.skel-desc-block .skel-line {
+  height: 13px;
+  border-radius: 4px;
+  margin-bottom: 7px;
+}
+.skel-desc-block .skel-line:nth-child(1) { width: 100%; animation-delay: 0.1s; }
+.skel-desc-block .skel-line:nth-child(2) { width: 88%;  animation-delay: 0.15s; }
+.skel-desc-block .skel-line:nth-child(3) { width: 68%;  animation-delay: 0.2s; }
+
+.skel-actions {
+  display: flex;
+  gap: 10px;
+}
+.skel-actions .skel-btn-visit {
+  height: 36px;
+  width: 110px;
+  border-radius: 8px;
+  animation-delay: 0.2s;
+}
+.skel-actions .skel-btn-back {
+  height: 36px;
+  width: 100px;
+  border-radius: 8px;
+  animation-delay: 0.25s;
+}
+
+/* ── TWO-COL LAYOUT ── */
+.skel-two-col {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: clamp(16px, 2.5vw, 24px);
+  align-items: start;
+}
+
+/* ── BEST FOR CARD SKELETON ── */
+.skel-section-card {
+  background: #fff;
+  border-radius: 14px;
+  border: 1.5px solid #e8edf5;
+  padding: clamp(16px, 2vw, 22px);
+  margin-bottom: clamp(14px, 2vw, 20px);
+}
+.skel-section-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: clamp(14px, 2vw, 18px);
+}
+.skel-section-title .skel-icon-sm {
+  width: 16px; height: 16px; border-radius: 4px; animation-delay: 0s;
+}
+.skel-section-title .skel-heading {
+  height: 14px; width: 80px; border-radius: 4px; animation-delay: 0.05s;
+}
+.skel-use-case-label {
+  height: 10px; width: 120px; border-radius: 3px;
+  margin-bottom: 6px; animation-delay: 0.1s;
+}
+.skel-use-case-name {
+  height: 18px; width: 160px; border-radius: 5px;
+  margin-bottom: 12px; animation-delay: 0.12s;
+}
+
+.skel-best-for-inner {
+  display: flex;
+  gap: clamp(12px, 2vw, 18px);
+  align-items: flex-start;
+}
+.skel-best-for-text { flex: 1; }
+.skel-best-for-text .skel-line {
+  height: 12px; border-radius: 4px; margin-bottom: 7px;
+}
+.skel-best-for-text .skel-line:nth-child(1) { width: 100%; animation-delay: 0.15s; }
+.skel-best-for-text .skel-line:nth-child(2) { width: 92%;  animation-delay: 0.18s; }
+.skel-best-for-text .skel-line:nth-child(3) { width: 76%;  animation-delay: 0.21s; }
+.skel-best-for-text .skel-line:nth-child(4) { width: 55%;  animation-delay: 0.24s; }
+
+.skel-best-for-img {
+  width: clamp(100px, 14vw, 140px);
+  height: clamp(90px, 12vw, 120px);
+  border-radius: 10px;
+  flex-shrink: 0;
+  animation-delay: 0.15s;
+}
+
+/* ── ANALYSIS SKELETON ── */
+.skel-analysis-section { margin-top: clamp(14px, 2vw, 20px); }
+.skel-analysis-title {
+  height: 18px; width: 80px; border-radius: 5px;
+  margin-bottom: clamp(12px, 1.8vw, 16px); animation-delay: 0s;
+}
+
+.skel-analysis-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(10px, 1.5vw, 14px);
+}
+.skel-analysis-box {
+  border-radius: 12px;
+  padding: clamp(12px, 1.5vw, 16px);
+}
+.skel-analysis-box.strengths {
+  background: #f0fdf4;
+  border: 1.5px solid #bbf7d0;
+}
+.skel-analysis-box.limitations {
+  background: #fffbeb;
+  border: 1.5px solid #fde68a;
+}
+.skel-analysis-box-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: clamp(10px, 1.4vw, 14px);
+}
+.skel-analysis-box-title .skel-icon-sm {
+  width: 15px; height: 15px; border-radius: 3px; animation-delay: 0s;
+}
+.skel-analysis-box-title .skel-label {
+  height: 13px; width: 70px; border-radius: 4px; animation-delay: 0.05s;
+}
+.skel-analysis-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 9px;
+}
+.skel-analysis-item:last-child { margin-bottom: 0; }
+.skel-analysis-item .skel-check {
+  width: 14px; height: 14px; border-radius: 3px; flex-shrink: 0;
+}
+.skel-analysis-item .skel-text {
+  height: 12px; border-radius: 4px; flex: 1;
+}
+.skel-analysis-item:nth-child(2) .skel-text  { width: 90%; animation-delay: 0.1s; }
+.skel-analysis-item:nth-child(3) .skel-text  { width: 80%; animation-delay: 0.15s; }
+.skel-analysis-item:nth-child(4) .skel-text  { width: 70%; animation-delay: 0.2s; }
+
+/* ── PRICING SKELETON ── */
+.skel-pricing-section { margin-top: clamp(20px, 3vw, 28px); }
+.skel-pricing-title {
+  height: 18px; width: 130px; border-radius: 5px;
+  margin-bottom: clamp(12px, 1.8vw, 16px); animation-delay: 0s;
+}
+.skel-pricing-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: clamp(10px, 1.5vw, 14px);
+}
+.skel-pricing-card {
+  background: #fff;
+  border-radius: 14px;
+  border: 1.5px solid #e8edf5;
+  padding: clamp(16px, 2vw, 22px);
+}
+.skel-pricing-card .skel-tier {
+  height: 10px; width: 55px; border-radius: 3px;
+  margin-bottom: 6px; animation-delay: 0.05s;
+}
+.skel-pricing-card .skel-price {
+  height: clamp(28px, 4vw, 36px); width: 80px; border-radius: 6px;
+  margin-bottom: 6px; animation-delay: 0.1s;
+}
+.skel-pricing-card .skel-period {
+  height: 12px; width: 50px; border-radius: 3px;
+  margin-bottom: clamp(12px, 1.8vw, 16px); animation-delay: 0.12s;
+}
+.skel-pricing-card .skel-feature {
+  display: flex; align-items: center; gap: 8px; margin-bottom: 8px;
+}
+.skel-pricing-card .skel-feature .skel-check {
+  width: 13px; height: 13px; border-radius: 3px; flex-shrink: 0;
+}
+.skel-pricing-card .skel-feature .skel-feat-text {
+  height: 12px; border-radius: 4px;
+}
+.skel-pricing-card .skel-feature:nth-child(1) .skel-feat-text { width: 85%; animation-delay: 0.15s; }
+.skel-pricing-card .skel-feature:nth-child(2) .skel-feat-text { width: 72%; animation-delay: 0.18s; }
+.skel-pricing-card .skel-feature:nth-child(3) .skel-feat-text { width: 78%; animation-delay: 0.21s; }
+.skel-pricing-card .skel-feature:nth-child(4) .skel-feat-text { width: 65%; animation-delay: 0.24s; }
+.skel-pricing-card .skel-cta-btn {
+  height: 36px; width: 100%; border-radius: 7px;
+  margin-top: clamp(14px, 4vw, 70px); animation-delay: 0.28s;
+}
+
+/* ── RIGHT COLUMN SKELETON ── */
+.skel-right-card {
+  background: #fff;
+  border-radius: 14px;
+  border: 1.5px solid #e8edf5;
+  padding: clamp(16px, 2vw, 22px);
+}
+.skel-alt-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: clamp(12px, 1.8vw, 16px);
+}
+.skel-alt-header .skel-heading { height: 14px; width: 90px; border-radius: 4px; }
+.skel-alt-header .skel-see-all { height: 12px; width: 48px; border-radius: 4px; animation-delay: 0.05s; }
+
+.skel-alt-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: clamp(10px, 1.4vw, 13px) 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+.skel-alt-item:last-child { border-bottom: none; }
+.skel-alt-item-left { display: flex; align-items: center; gap: 10px; }
+.skel-alt-item .skel-alt-icon {
+  width: 32px; height: 32px; border-radius: 8px; flex-shrink: 0;
+}
+.skel-alt-item .skel-alt-name {
+  height: 13px; width: 80px; border-radius: 4px; margin-bottom: 5px;
+}
+.skel-alt-item .skel-alt-desc {
+  height: 11px; width: 120px; border-radius: 3px; animation-delay: 0.08s;
+}
+.skel-alt-item .skel-chevron {
+  width: 14px; height: 14px; border-radius: 3px; animation-delay: 0.1s;
+}
+
+.skel-quick-info { margin-top: clamp(14px, 2vw, 18px); }
+.skel-quick-info-title {
+  height: 10px; width: 80px; border-radius: 3px;
+  margin-bottom: clamp(10px, 1.4vw, 13px); animation-delay: 0.05s;
+}
+.skel-quick-info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 7px 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+.skel-quick-info-row:last-of-type { border-bottom: none; }
+.skel-quick-info-row .skel-label { height: 12px; width: 55px; border-radius: 3px; }
+.skel-quick-info-row .skel-value { height: 12px; width: 75px; border-radius: 3px; animation-delay: 0.08s; }
+
+.skel-quick-tags {
+  display: flex; gap: 6px; flex-wrap: wrap;
+  margin-top: clamp(10px, 1.4vw, 13px);
+}
+.skel-quick-tags .skel-tag {
+  height: 24px; border-radius: 5px; animation-delay: 0.1s;
+}
+.skel-quick-tags .skel-tag:nth-child(1) { width: 52px; animation-delay: 0.10s; }
+.skel-quick-tags .skel-tag:nth-child(2) { width: 86px; animation-delay: 0.15s; }
+.skel-quick-tags .skel-tag:nth-child(3) { width: 42px; animation-delay: 0.20s; }
+
 /* ── RESPONSIVE ── */
 @media (max-width: 700px) {
   .two-col {
@@ -577,6 +881,12 @@ body {
     width: 100%;
     height: 140px;
   }
+
+  .skel-two-col         { grid-template-columns: 1fr; }
+  .skel-analysis-grid   { grid-template-columns: 1fr; }
+  .skel-pricing-grid    { grid-template-columns: 1fr; }
+  .skel-best-for-inner  { flex-direction: column; }
+  .skel-best-for-img    { width: 100%; height: 140px; }
 }
 @media (max-width: 480px) {
   .nav-links,
@@ -587,4 +897,6 @@ body {
     flex-direction: column;
     align-items: flex-start;
   }
+    .skel-actions { flex-wrap: wrap; }
+
 }

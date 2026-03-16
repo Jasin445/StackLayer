@@ -1,107 +1,125 @@
-import { stackLayerCategories } from "../../data/data.js";
+import { getStackLayerData, getToolLogo, getPageParam, getParam, setParams, removeParam } from "../utils.js";
 
-const renderSuggestion = () => {
-  // ── DOM ──
+const renderSuggestion = async () => {
+  const stackLayerData = await getStackLayerData();
+
+  // ── DOM ELEMENTS (cache once)
   const toolsContainer = document.querySelector("#toolsGrid");
   const paginationContainer = document.querySelector(".pagination");
   const paginationInfo = document.querySelector(".pagination-info");
   const heading = document.querySelector("#headerText");
   const subtitle = document.querySelector("#descText");
+  const clearFilter = document.querySelector("#clearFilter");
 
-  // ── CATEGORY FROM URL/STORAGE ──
+  // ── CATEGORY FROM URL/STORAGE
   const params = new URLSearchParams(location.search);
   const category =
     params.get("category") || localStorage.getItem("selectedCategory");
 
-  const AITools = stackLayerCategories.filter(
-    (c) => c.category.toLowerCase() === category.toLowerCase(),
+  const categoryData = stackLayerData.find(
+    (c) => c.category.toLowerCase() === category.toLowerCase()
   );
+  
+  if (!categoryData) return;
 
-  heading.textContent = AITools[0].category;
-  subtitle.textContent = AITools[0].description;
+  heading.textContent = categoryData.category;
+  subtitle.textContent = categoryData.description;
 
-  // ── STATE ──
   const ITEMS_PER_PAGE = 6;
-  let currentPage = 1;
-  let activeFilter = null;
-  const tools = AITools[0]?.tools || [];
+  let currentPage = getPageParam();           // ← reads from URL
+  let activeFilter = getParam("filter");      // ← reads from URL
+  const tools = categoryData.tools || [];
 
-  // ── FILTERING ──
+  // ── FILTER CACHE
+  let filteredCache = null;
   function getFilteredTools() {
     if (!activeFilter) return tools;
-    return tools.filter((tool) => tool.filter.includes(activeFilter));
+    if (filteredCache?.filter === activeFilter) return filteredCache.data;
+
+    const filtered = tools.filter((tool) => tool.filter.includes(activeFilter));
+    filteredCache = { filter: activeFilter, data: filtered };
+    return filtered;
   }
 
-  // ── PAGINATION SLICE ──
   function getPaginatedTools() {
     const start = (currentPage - 1) * ITEMS_PER_PAGE;
     return getFilteredTools().slice(start, start + ITEMS_PER_PAGE);
   }
 
-  // ── RENDER TOOLS ──
-  function renderTools() {
+  // ── RENDER TOOLS
+  async function renderTools() {
     const pageTools = getPaginatedTools();
+    toolsContainer.innerHTML = "";
+    const fragment = document.createDocumentFragment();
 
-    if (!pageTools.length) {
-      toolsContainer.innerHTML = `<p class="no-results">No tools found.</p>`;
-      return;
-    }
+    for (const tool of pageTools) {
+      const card = document.createElement("div");
+      card.className = "tool-card";
 
-    toolsContainer.innerHTML = pageTools
-      .map((tool) => {
-        const tags = tool.tags
-          .map((tag) => `<span class="tag">${tag}</span>`)
-          .join("");
-        const tierClass = tool.tier.toLowerCase().replace(/\s+/g, "-");
+      const tierClass = tool.tier.toLowerCase().replace(/\s+/g, "-");
+      const tags = (tool.tags || []).map(t => `<span class="tag">${t}</span>`).join("");
+      const logo = await getToolLogo(tool);
 
-        return `
-        <div class="tool-card">
-          <div class="card-top">
-            <div class="tool-icon icon-elevenlabs" style="background-color: ${tool.logo.bg};">
-              <div style="color: ${tool.logo.color};">
-                ${tool.logo.initials ?? "N/A"}
-              </div>
-            </div>
-            <span class="badge badge-${tierClass}">${tool.tier}</span>
-          </div>
-          <div class="tool-name">${tool.name}</div>
-          <div class="tool-desc">${tool.description}</div>
-          <div class="tool-tags">${tags}</div>
-          <button class="btn-view" data-name="${tool.name}">View Details</button>
+      card.innerHTML = `
+        <div class="card-top">
+          ${logo}
+          <span class="badge badge-${tierClass}">${tool.tier}</span>
         </div>
+        <div class="tool-name">${tool.name}</div>
+        <div class="tool-desc">${tool.description}</div>
+        <div class="tool-tags">${tags}</div>
+        <button class="btn-view" data-name="${tool.name}">View Details</button>
       `;
-      })
-      .join("");
-  }
 
-  // ── RENDER PAGINATION ──
-  function renderPagination() {
-    const totalPages = Math.ceil(getFilteredTools().length / ITEMS_PER_PAGE);
-
-    if (totalPages <= 1) {
-      paginationContainer.innerHTML = "";
-      return;
+      fragment.appendChild(card);
     }
 
-    paginationContainer.innerHTML = `
-    <button class="page-btn" data-page="prev" ${currentPage === 1 ? "disabled" : ""}>
-      <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </button>
-
-    ${Array.from({ length: totalPages }, (_, i) => i + 1)
-      .map(
-        (p) =>
-          `<button class="page-btn ${p === currentPage ? "active" : ""}" data-page="${p}">${p}</button>`,
-      )
-      .join("")}
-
-    <button class="page-btn" data-page="next" ${currentPage === totalPages ? "disabled" : ""}>
-      <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </button>
-  `;
+    toolsContainer.appendChild(fragment);
   }
 
-  // ── RENDER PAGINATION INFO ──
+  // ── RENDER PAGINATION
+  function renderPagination() {
+    const filtered = getFilteredTools();
+    const totalPages = Math.ceil(filtered.length / ITEMS_PER_PAGE);
+    paginationContainer.innerHTML = "";
+
+    if (totalPages <= 1) return;
+
+    const fragment = document.createDocumentFragment();
+
+    const createBtn = (label, page, disabled = false, active = false) => {
+      const btn = document.createElement("button");
+      btn.className = "page-btn";
+      if (active) btn.classList.add("active");
+      btn.disabled = disabled;
+      btn.dataset.page = page;
+      btn.innerHTML = label;
+      return btn;
+    };
+
+    fragment.appendChild(
+      createBtn(
+        `<svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+        "prev",
+        currentPage === 1
+      )
+    );
+
+    for (let p = 1; p <= totalPages; p++) {
+      fragment.appendChild(createBtn(p, p, false, p === currentPage));
+    }
+
+    fragment.appendChild(
+      createBtn(
+        `<svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+        "next",
+        currentPage === totalPages
+      )
+    );
+
+    paginationContainer.appendChild(fragment);
+  }
+
   function updatePaginationInfo() {
     const filtered = getFilteredTools();
     const start = (currentPage - 1) * ITEMS_PER_PAGE + 1;
@@ -109,38 +127,53 @@ const renderSuggestion = () => {
     paginationInfo.textContent = `Showing ${start}–${end} of ${filtered.length} tools in ${category ?? ""} stage`;
   }
 
-  // ── FULL RENDER ──
   function render() {
     renderTools();
     renderPagination();
     updatePaginationInfo();
   }
 
-  // ── FILTER TABS ──
+  // ── FILTER TABS
+  function renderFilterTabs() {
+    const validFilters = new Set(tools.flatMap((tool) => tool.filter));
+
+    document.querySelectorAll(".filter-tab").forEach((btn) => {
+      const hasResults = validFilters.has(btn.dataset.filter);
+      btn.style.display = hasResults ? "" : "none";
+
+      // restore active state from URL on load
+      if (btn.dataset.filter === activeFilter) {
+        btn.classList.add("active");
+        clearFilter.style.color = "red";
+        clearFilter.firstElementChild.style.stroke = "red";
+      }
+    });
+  }
+
   document.querySelectorAll(".filter-tab").forEach((btn) => {
     btn.addEventListener("click", () => {
-      document
-        .querySelectorAll(".filter-tab")
-        .forEach((t) => t.classList.remove("active"));
+      document.querySelectorAll(".filter-tab").forEach((t) => t.classList.remove("active"));
       btn.classList.add("active");
-
+      clearFilter.style.color = "red";
+      clearFilter.firstElementChild.style.stroke = "red";
       activeFilter = btn.dataset.filter;
       currentPage = 1;
+      setParams({ page: 1, filter: activeFilter }); // ← updates URL
       render();
     });
   });
 
-  // ── CLEAR FILTER ──
   document.querySelector(".clear-filter")?.addEventListener("click", () => {
     activeFilter = null;
     currentPage = 1;
-    document
-      .querySelectorAll(".filter-tab")
-      .forEach((t) => t.classList.remove("active"));
+    clearFilter.style.color = "gray";
+    clearFilter.firstElementChild.style.stroke = "gray";
+    document.querySelectorAll(".filter-tab").forEach((t) => t.classList.remove("active"));
+    removeParam("filter");        // ← removes filter from URL
+    setParams({ page: 1 });      // ← resets page in URL
     render();
   });
 
-  // ── PAGINATION CLICKS ──
   paginationContainer.addEventListener("click", (e) => {
     const btn = e.target.closest(".page-btn");
     if (!btn || btn.disabled) return;
@@ -152,18 +185,16 @@ const renderSuggestion = () => {
     else if (page === "next" && currentPage < totalPages) currentPage++;
     else if (!isNaN(page)) currentPage = Number(page);
 
+    setParams({ page: currentPage }); // ← updates URL
     render();
     toolsContainer.scrollIntoView({ behavior: "smooth" });
   });
 
-  // ── VIEW DETAILS ──
   toolsContainer.addEventListener("click", (e) => {
     const btn = e.target.closest(".btn-view");
     if (!btn) return;
 
-    const idx = Array.from(
-      toolsContainer.querySelectorAll(".btn-view"),
-    ).indexOf(btn);
+    const idx = Array.from(toolsContainer.querySelectorAll(".btn-view")).indexOf(btn);
     const AIName = getPaginatedTools()[idx]?.name;
     if (!AIName) return;
 
@@ -171,17 +202,15 @@ const renderSuggestion = () => {
     location.href = `/ai-details.html?tool=${String(AIName).toLowerCase()}`;
   });
 
-  // ── INIT ──
+  renderFilterTabs();
   render();
 };
 
 window.addEventListener("DOMContentLoaded", () => {
-  // const loaderFilter = document.getElementById("skeletonFilter")
   document.querySelectorAll(".filter-tab").forEach((filter) => {
     filter.style.display = "none";
   });
   setTimeout(() => {
-    // loaderFilter.style.display = "none";
     document.querySelectorAll(".filter-tab").forEach((filter) => {
       filter.style.display = "block";
     });

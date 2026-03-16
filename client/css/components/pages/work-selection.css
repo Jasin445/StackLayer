@@ -196,7 +196,7 @@ background: linear-gradient(160deg, #eef3fb 0%, #f8fafc 60%, #edf2fa 100%);
     }
 
     .btn-continue:disabled {
-      background: #ebebeb;
+      background: #edf2fa;
       color: gray;
       cursor:not-allowed;
     }
