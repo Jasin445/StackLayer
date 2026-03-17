@@ -10,23 +10,17 @@
     />
     <link rel="stylesheet" href="css/components/navbar.css" />
     <link rel="stylesheet" href="css/components/pages/community.css" />
-   
   </head>
   <body>
     <div class="community-main">
       <div id="toast" class="toast"></div>
+      <button class="back-btn">
+        <img src="./assets/icons/back-arrow.png" alt="back arrow" height="10" width="10">
+        Back</button>
       <div class="community-badge">
-        <a class="nav-logo" href="/">
+        <a class="nav-logo-community" href="/">
           <div class="nav-logo-icon">
-            <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M4 6h16M4 12h16M4 18h10"
-                stroke="#fff"
-                stroke-width="2.5"
-                stroke-linecap="round"
-                fill="none"
-              />
-            </svg>
+            <img src="./assets/icons/logo.png" alt="stacklayer logo" loading="lazy" decoding="async" width="34" height="34">
           </div>
           StackLayer
         </a>
@@ -65,6 +59,11 @@
     <script>
               const toast = document.querySelector("#toast");
               const input = document.getElementById("emailInput");
+              const backBtn = document.querySelector(".back-btn");
+
+            backBtn.addEventListener("click", () => {
+              history.back()
+            })
 
         const showToast = (msg, type = "success") => {
             toast.classList.remove("loading")
