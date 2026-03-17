@@ -373,8 +373,11 @@
             }
           toast.style.transform = "translateY(0)"
           toast.style.opacity = "1"
-          if(type !== "loading"){
+          if(type === "error"){
               setTimeout(() => (toast.style.opacity = "0"), 3500);
+          }
+          if(type === "success") {
+                setTimeout(() => (toast.style.opacity = "0"), 8000)
           }
         }
 
