@@ -59,6 +59,8 @@ export const getToolLogo = async (tool) => {
       alt="${tool?.name?.toLowerCase()} logo"
       width="45"
       height="45"
+      decoding="async"
+      loading="lazy"
       style="border-radius:16px"
       onerror="this.closest('.tool-icon').outerHTML = \`
         <div class='tool-icon icon-elevenlabs' style='background-color:${tool?.logo?.bg};'>

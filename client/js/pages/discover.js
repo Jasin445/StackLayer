@@ -1,30 +1,44 @@
-import { getStackLayerData, getToolLogo, getPageParam, getParam, setParams, removeParam } from "../utils.js";
+import {
+  getStackLayerData,
+  getToolLogo,
+  getPageParam,
+  getParam,
+  setParams,
+  removeParam,
+} from "../utils.js";
 
-const toolsContainer    = document.querySelector(".tools-grid");
+const toolsContainer = document.querySelector(".tools-grid");
 const paginationContainer = document.querySelector(".pagination");
-const paginationInfo    = document.querySelector(".pagination-info");
-const resultCount       = document.querySelector("#resultCount");
-const searchInput       = document.querySelector("#searchTools");
-const professionPill    = document.querySelector(".filter-pill[data-type='profession'] .pill-value");
-const workflowPill      = document.querySelector(".filter-pill[data-type='workflow'] .pill-value");
-const pricingPill       = document.querySelector(".filter-pill[data-type='pricing'] .pill-value");
-const clearAllBtn       = document.querySelector(".clear-all");
-const sortRow           = document.querySelector(".sort-row");
-const sortLabel         = sortRow.querySelector("strong");
+const paginationInfo = document.querySelector(".pagination-info");
+const resultCount = document.querySelector("#resultCount");
+const searchInput = document.querySelector("#searchTools");
+const professionPill = document.querySelector(
+  ".filter-pill[data-type='profession'] .pill-value",
+);
+const workflowPill = document.querySelector(
+  ".filter-pill[data-type='workflow'] .pill-value",
+);
+const pricingPill = document.querySelector(
+  ".filter-pill[data-type='pricing'] .pill-value",
+);
+const clearAllBtn = document.querySelector(".clear-all");
+const sortRow = document.querySelector(".sort-row");
+const sortLabel = sortRow.querySelector("strong");
 
 const stackLayerData = await getStackLayerData();
 const data = stackLayerData.flatMap((cat) =>
-  cat.tools.map((tool) => ({ ...tool, workflow: cat.category }))
+  cat.tools.map((tool) => ({ ...tool, workflow: cat.category })),
 );
+console.log(clearAllBtn);
 
 const ITEMS_PER_PAGE = 8;
-let currentPage   = getPageParam();
-let activeSort    = getParam("sort")   || "relevance";
-let searchQuery   = getParam("search") || "";
+let currentPage = getPageParam();
+let activeSort = getParam("sort") || "relevance";
+let searchQuery = getParam("search") || "";
 let activeFilters = {
   profession: getParam("profession") || null,
-  workflow:   getParam("workflow")   || null,
-  pricing:    getParam("pricing")    || null,
+  workflow: getParam("workflow") || null,
+  pricing: getParam("pricing") || null,
 };
 
 // restore search input from URL
@@ -41,11 +55,11 @@ function debounce(fn, delay) {
 
 // ── SORT OPTIONS
 const sortOptions = [
-  { label: "Relevance",   value: "relevance" },
-  { label: "Name A → Z", value: "name-asc"  },
+  { label: "Relevance", value: "relevance" },
+  { label: "Name A → Z", value: "name-asc" },
   { label: "Name Z → A", value: "name-desc" },
-  { label: "Free first",  value: "tier-free" },
-  { label: "Paid first",  value: "tier-paid" },
+  { label: "Free first", value: "tier-free" },
+  { label: "Paid first", value: "tier-paid" },
 ];
 
 function getSortedTools(filtered) {
@@ -57,12 +71,18 @@ function getSortedTools(filtered) {
     case "tier-free":
       return [...filtered].sort((a, b) => {
         const order = ["free", "premium", "free trial", "paid only"];
-        return order.indexOf(a.tier.toLowerCase()) - order.indexOf(b.tier.toLowerCase());
+        return (
+          order.indexOf(a.tier.toLowerCase()) -
+          order.indexOf(b.tier.toLowerCase())
+        );
       });
     case "tier-paid":
       return [...filtered].sort((a, b) => {
         const order = ["paid only", "premium", "free trial", "free"];
-        return order.indexOf(a.tier.toLowerCase()) - order.indexOf(b.tier.toLowerCase());
+        return (
+          order.indexOf(a.tier.toLowerCase()) -
+          order.indexOf(b.tier.toLowerCase())
+        );
       });
     case "relevance":
     default:
@@ -75,22 +95,29 @@ function getFilteredTools() {
   const query = searchQuery.toLowerCase().trim();
 
   const filtered = data.filter((tool) => {
-    const matchProfession = !activeFilters.profession ||
-      tool.tags.some(t => t.toLowerCase() === activeFilters.profession.toLowerCase());
+    const matchProfession =
+      !activeFilters.profession ||
+      tool.tags.some(
+        (t) => t.toLowerCase() === activeFilters.profession.toLowerCase(),
+      );
 
-    const matchWorkflow = !activeFilters.workflow ||
+    const matchWorkflow =
+      !activeFilters.workflow ||
       tool.workflow.toLowerCase() === activeFilters.workflow.toLowerCase();
 
-    const matchPricing = !activeFilters.pricing ||
+    const matchPricing =
+      !activeFilters.pricing ||
       tool.tier.toLowerCase() === activeFilters.pricing.toLowerCase();
 
-    const matchSearch = !query || [
-      tool.name,
-      tool.description,
-      tool.workflow,
-      tool.tier,
-      ...(tool.tags || []),
-    ].some(field => field?.toLowerCase().includes(query));
+    const matchSearch =
+      !query ||
+      [
+        tool.name,
+        tool.description,
+        tool.workflow,
+        tool.tier,
+        ...(tool.tags || []),
+      ].some((field) => field?.toLowerCase().includes(query));
 
     return matchProfession && matchWorkflow && matchPricing && matchSearch;
   });
@@ -106,24 +133,39 @@ function getPaginatedTools() {
 
 // ── RENDER TOOLS
 async function renderTools() {
+  toolsContainer.style.gridTemplateColumns = "1fr 1fr 1fr 1fr"
   const pageTools = getPaginatedTools();
   toolsContainer.innerHTML = "";
   const fragment = document.createDocumentFragment();
 
   if (pageTools.length === 0) {
-    const empty = document.createElement("div");
+  const empty = document.createElement("div");
     empty.className = "empty-state";
-    empty.textContent = "No tools match your search.";
-    toolsContainer.appendChild(empty);
-    return;
-  }
+    toolsContainer.style.gridTemplateColumns = "1fr"
+
+  empty.innerHTML = `
+    <img 
+      src="./assets/images/empty-state.png" 
+      alt="No results found"
+      style="width: 180px; opacity: 0.8; margin-bottom: 12px;"
+    />
+    <p style="color:#666; font-size:14px;">
+      No tools match your search.
+    </p>
+  `;
+
+  toolsContainer.appendChild(empty);
+  return;
+}
 
   for (const tool of pageTools) {
     const card = document.createElement("div");
     card.className = "tool-card";
 
     const tierClass = tool?.tier.toLowerCase().replace(/\s+/g, "-");
-    const tags = (tool?.tags || []).map((t) => `<span class="tag">${t}</span>`).join("");
+    const tags = (tool?.tags || [])
+      .map((t) => `<span class="tag">${t}</span>`)
+      .join("");
     const logo = await getToolLogo(tool);
 
     card.innerHTML = `
@@ -164,19 +206,25 @@ function renderPagination() {
     return btn;
   };
 
-  fragment.appendChild(createBtn(
-    `<svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
-    "prev", currentPage === 1
-  ));
+  fragment.appendChild(
+    createBtn(
+      `<svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+      "prev",
+      currentPage === 1,
+    ),
+  );
 
   for (let p = 1; p <= totalPages; p++) {
     fragment.appendChild(createBtn(p, p, false, p === currentPage));
   }
 
-  fragment.appendChild(createBtn(
-    `<svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
-    "next", currentPage === totalPages
-  ));
+  fragment.appendChild(
+    createBtn(
+      `<svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+      "next",
+      currentPage === totalPages,
+    ),
+  );
 
   paginationContainer.appendChild(fragment);
 }
@@ -193,16 +241,16 @@ function updatePaginationInfo() {
 // ── UPDATE PILL + SORT DISPLAY
 function updatePillDisplay() {
   professionPill.textContent = activeFilters.profession || "All";
-  workflowPill.textContent   = activeFilters.workflow   || "All";
-  pricingPill.textContent    = activeFilters.pricing    || "All";
+  workflowPill.textContent = activeFilters.workflow || "All";
+  pricingPill.textContent = activeFilters.pricing || "All";
 
-  const matched = sortOptions.find(o => o.value === activeSort);
+  const matched = sortOptions.find((o) => o.value === activeSort);
   if (matched) sortLabel.textContent = matched.label;
 }
 
 function render() {
   updatePillDisplay();
-  renderTools();
+  setTimeout(() => renderTools(), 800);
   renderPagination();
   updatePaginationInfo();
 }
@@ -222,6 +270,8 @@ function buildDropdown(items, onSelect, activeValue) {
     if ((activeValue || "All") === (value || "All")) el.classList.add("active");
 
     el.addEventListener("click", () => {
+      clearAllBtn.style.color = "red";
+      clearAllBtn.firstElementChild.style.stroke = "red";
       onSelect(value);
       dropdown.remove();
     });
@@ -235,7 +285,7 @@ function buildDropdown(items, onSelect, activeValue) {
 
 function positionDropdown(dropdown, el) {
   const rect = el.getBoundingClientRect();
-  dropdown.style.top  = `${rect.bottom + window.scrollY + 6}px`;
+  dropdown.style.top = `${rect.bottom + window.scrollY + 6}px`;
   dropdown.style.left = `${rect.left + window.scrollX}px`;
 }
 
@@ -261,7 +311,7 @@ document.querySelectorAll(".filter-pill").forEach((pill) => {
         setParams({ page: 1, [type]: activeFilters[type] });
         render();
       },
-      activeFilters[type] || "All"
+      activeFilters[type] || "All",
     );
 
     positionDropdown(dropdown, pill);
@@ -278,7 +328,7 @@ sortRow.addEventListener("click", () => {
       setParams({ sort: activeSort, page: 1 });
       render();
     },
-    activeSort
+    activeSort,
   );
 
   positionDropdown(dropdown, sortRow);
@@ -296,19 +346,24 @@ document.addEventListener("click", (e) => {
 });
 
 // ── SEARCH INPUT
-searchInput.addEventListener("input", debounce((e) => {
-  searchQuery = e.target.value;
-  currentPage = 1;
-  setParams({ search: searchQuery || null, page: 1 });
-  render();
-}, 350));
+searchInput.addEventListener(
+  "input",
+  debounce((e) => {
+    searchQuery = e.target.value;
+    currentPage = 1;
+    setParams({ search: searchQuery || null, page: 1 });
+    render();
+  }, 350),
+);
 
 // ── CLEAR ALL
 clearAllBtn?.addEventListener("click", () => {
+  clearAllBtn.style.color = "gray";
+  clearAllBtn.firstElementChild.style.stroke = "gray";
   activeFilters = { profession: null, workflow: null, pricing: null };
-  activeSort    = "relevance";
-  searchQuery   = "";
-  currentPage   = 1;
+  activeSort = "relevance";
+  searchQuery = "";
+  currentPage = 1;
   searchInput.value = "";
   removeParam("profession");
   removeParam("workflow");
@@ -340,7 +395,9 @@ toolsContainer.addEventListener("click", (e) => {
   const btn = e.target.closest(".btn-view");
   if (!btn) return;
 
-  const idx = Array.from(toolsContainer.querySelectorAll(".btn-view")).indexOf(btn);
+  const idx = Array.from(toolsContainer.querySelectorAll(".btn-view")).indexOf(
+    btn,
+  );
   const AIName = getPaginatedTools()[idx]?.name;
   if (!AIName) return;
 
