@@ -114,6 +114,7 @@ body {
   min-width: 160px;
   height: 185px;
   overflow-x: hidden;
+  overflow-y: scroll;
 }
 .pill-dropdown-item {
   padding: 10px 14px;
