@@ -21,7 +21,7 @@ body {
 
 /* ── HERO SEARCH ── */
 .hero-title {
-  font-size: clamp(22px, 3.5vw, 50px);
+  font-size: clamp(22px, 3.5vw, 40px);
   font-weight: 800;
   color: #0f172a;
   text-align: center;
@@ -34,11 +34,12 @@ body {
   gap: 10px;
   background: #fff;
   border: 1.5px solid #e2e8f0;
-  border-radius: 12px;
-  padding: clamp(10px, 1.5vw, 20px) clamp(14px, 2vw, 18px);
-  max-width: 560px;
+  border-radius: 42px;
+  padding: clamp(10px, 1.5vw, 13px) clamp(14px, 2vw, 18px);
+  max-width: 460px;
   margin: auto;
   margin-bottom: clamp(20px, 3vw, 32px);
+  margin-top: 40px;
   /* box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05); */
 }
 .main-search svg {
